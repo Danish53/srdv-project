@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { BRAND } from "@/lib/brand";
 
 const NAV_BLUE = "#21619c";
 const RED = "#cc1d1d";
@@ -16,36 +17,10 @@ function IconUsers({ className }: { className?: string }) {
   );
 }
 
-function IconHeadset({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-      <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
-      <path d="M21 19a2 2 0 0 1-2 2h-1v-3" />
-      <path d="M3 19a2 2 0 0 0 2 2h1v-3" />
-    </svg>
-  );
-}
-
-function IconPencil({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-      <path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
-    </svg>
-  );
-}
-
 function IconChat({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-    </svg>
-  );
-}
-
-function IconChevronDown({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
-      <path d="m6 9 6 6 6-6" />
     </svg>
   );
 }
@@ -83,6 +58,8 @@ function SocialInstagram({ className }: { className?: string }) {
 }
 
 function LogoMark() {
+  const letter = BRAND.logoLetter;
+  const gradId = `logoGrad-${letter}`;
   return (
     <div
       className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-[#21619c]/30 bg-white shadow-sm"
@@ -90,7 +67,7 @@ function LogoMark() {
     >
       <svg viewBox="0 0 48 48" className="h-9 w-9">
         <defs>
-          <linearGradient id="logoS" x1="0%" y1="0%" x2="100%" y2="0%">
+          <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#21619c" />
             <stop offset="50%" stopColor="#21619c" />
             <stop offset="50%" stopColor={RED} />
@@ -105,9 +82,9 @@ function LogoMark() {
           fontSize="28"
           fontWeight="800"
           fontFamily="system-ui, sans-serif"
-          fill="url(#logoS)"
+          fill={`url(#${gradId})`}
         >
-          S
+          {letter}
         </text>
       </svg>
     </div>
@@ -116,51 +93,21 @@ function LogoMark() {
 
 const utilityLinks = [
   { href: "/about", label: "About Us", Icon: IconUsers },
-  { href: "#", label: "Support", Icon: IconHeadset },
-  { href: "#", label: "Blog", Icon: IconPencil },
   { href: "/faq", label: "FAQ", Icon: IconChat },
 ] as const;
 
-const dropdownItems = ["Overview", "Team", "Careers"] as const;
-
 const navItems = [
-  { href: "/", label: "Home", dropdown: false },
-  { href: "#", label: "Company", dropdown: true },
-  { href: "#", label: "Travel Portal", dropdown: true },
-  { href: "#", label: "E-Commerce Portal", dropdown: true },
-  { href: "#", label: "Special Services", dropdown: true },
-  { href: "#", label: "Other Services", dropdown: true },
-  { href: "#", label: "Pricing", dropdown: false },
-  { href: "/contact", label: "Contact", dropdown: false },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+  { href: "/faq", label: "FAQ" },
 ] as const;
-
-function NavDropdown() {
-  return (
-    <ul
-      className="absolute left-0 top-full z-50 hidden min-w-[200px] rounded-b-md border border-white/10 bg-[#1a5080] py-2 pt-3 shadow-lg group-hover:block"
-      role="menu"
-    >
-      {dropdownItems.map((item) => (
-        <li key={item}>
-          <Link
-            href="#"
-            className="block px-4 py-2 text-sm normal-case tracking-normal text-white/95 hover:bg-white/10"
-            role="menuitem"
-          >
-            {item}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
-}
 
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <header className="w-full font-sans text-neutral-800 shadow-sm">
-      {/* Tier 1 — utility (hidden on small screens) */}
       <div
         className="hidden text-white md:block"
         style={{
@@ -202,20 +149,19 @@ export function SiteHeader() {
         <div className="h-3" aria-hidden />
       </div>
 
-      {/* Tier 2 — logo + contact */}
       <div className="border-b border-neutral-200 bg-white">
         <div className="mx-auto flex max-w-[1400px] flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6 lg:px-10 lg:py-3">
           <Link href="/" className="flex items-center gap-3 sm:gap-4">
             <LogoMark />
             <div className="leading-tight">
               <span className="block text-2xl font-extrabold tracking-tight sm:text-3xl" style={{ color: NAV_BLUE }}>
-                ACME
+                {BRAND.name}
               </span>
               <span
                 className="block text-base italic sm:text-lg"
                 style={{ color: RED, fontFamily: "var(--font-brand-serif), Georgia, serif" }}
               >
-                technologies
+                {BRAND.tagline}
               </span>
             </div>
           </Link>
@@ -233,7 +179,7 @@ export function SiteHeader() {
               <span className="font-medium">(+91) 96437-37505</span>
             </a>
             <a
-              href="mailto:info@srdvtechnologies.com"
+              href={`mailto:${BRAND.email}`}
               className="inline-flex items-center gap-2 text-sm text-neutral-700"
             >
               <span
@@ -245,13 +191,12 @@ export function SiteHeader() {
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                 </svg>
               </span>
-              <span className="break-all font-medium sm:break-normal">info@srdvtechnologies.com</span>
+              <span className="break-all font-medium sm:break-normal">{BRAND.email}</span>
             </a>
           </div>
         </div>
       </div>
 
-      {/* Tier 3 — primary nav */}
       <div className="relative" style={{ backgroundColor: NAV_BLUE }}>
         <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-2 px-4 lg:px-10">
           <button
@@ -274,29 +219,24 @@ export function SiteHeader() {
           </button>
 
           <nav
-            className="hidden min-h-[52px] flex-1 items-center gap-1 lg:gap-0 xl:justify-between md:flex"
+            className="hidden min-h-[52px] flex-1 items-center justify-between gap-4 md:flex"
             aria-label="Primary"
           >
-            <ul className="flex flex-wrap items-center gap-x-1 lg:gap-x-0">
+            <ul className="flex flex-wrap items-center gap-x-0.5 lg:gap-x-1">
               {navItems.map((item) => (
-                <li
-                  key={item.label}
-                  className={item.dropdown ? "group relative" : "relative"}
-                >
+                <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="flex items-center gap-0.5 px-2 py-4 text-[11px] font-semibold uppercase tracking-wide text-white transition hover:bg-white/10 lg:px-2.5 xl:px-3.5 xl:text-xs"
+                    className="block px-2 py-4 text-[11px] font-semibold uppercase tracking-wide text-white transition hover:bg-white/10 lg:px-3 xl:text-xs"
                   >
                     {item.label}
-                    {item.dropdown && <IconChevronDown className="h-3.5 w-3.5 opacity-90" />}
                   </Link>
-                  {item.dropdown && <NavDropdown />}
                 </li>
               ))}
             </ul>
             <Link
-              href="#"
-              className="ml-2 hidden shrink-0 rounded-full px-4 py-2.5 text-center text-[10px] font-bold uppercase tracking-wide text-white transition hover:brightness-110 md:inline-block xl:ml-4 xl:px-5"
+              href="/contact"
+              className="hidden shrink-0 rounded-full px-4 py-2.5 text-center text-[10px] font-bold uppercase tracking-wide text-white transition hover:brightness-110 md:inline-block xl:px-5"
               style={{ backgroundColor: RED }}
             >
               Request for callback
@@ -304,7 +244,7 @@ export function SiteHeader() {
           </nav>
 
           <Link
-            href="#"
+            href="/contact"
             className="rounded-full px-3 py-2 text-[9px] font-bold uppercase leading-tight text-white md:hidden"
             style={{ backgroundColor: RED }}
           >
@@ -312,42 +252,25 @@ export function SiteHeader() {
           </Link>
         </div>
 
-        {/* Mobile menu */}
         <div
           id="mobile-nav"
           className={`border-t border-white/15 md:hidden ${mobileOpen ? "block" : "hidden"}`}
         >
-          <ul className="max-h-[70vh] overflow-y-auto px-2 py-3">
+          <ul className="px-2 py-3">
             {navItems.map((item) => (
-              <li key={item.label} className="border-b border-white/10 last:border-0">
+              <li key={item.href} className="border-b border-white/10 last:border-0">
                 <Link
                   href={item.href}
-                  className="flex items-center justify-between px-3 py-3 text-sm font-semibold uppercase tracking-wide text-white"
-                  onClick={() => !item.dropdown && setMobileOpen(false)}
+                  className="block px-3 py-3 text-sm font-semibold uppercase tracking-wide text-white"
+                  onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
-                  {item.dropdown && <IconChevronDown className="h-4 w-4 -rotate-90" />}
                 </Link>
-                {item.dropdown && (
-                  <ul className="border-t border-white/10 bg-black/10 pb-2 pl-4">
-                    {dropdownItems.map((sub) => (
-                      <li key={sub}>
-                        <Link
-                          href="#"
-                          className="block py-2 text-sm text-white/90"
-                          onClick={() => setMobileOpen(false)}
-                        >
-                          {sub}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </li>
             ))}
             <li className="px-3 pt-4">
               <Link
-                href="#"
+                href="/contact"
                 className="block rounded-full py-3 text-center text-xs font-bold uppercase text-white"
                 style={{ backgroundColor: RED }}
                 onClick={() => setMobileOpen(false)}

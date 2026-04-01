@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { WhyChooseContactSection } from "@/components/WhyChooseContactSection";
+import { BRAND } from "@/lib/brand";
 
 const RED = "#E31E24";
 const BLUE = "#0054A6";
@@ -33,7 +34,7 @@ export function AboutPageContent() {
             id="about-hero-title"
             className="max-w-4xl text-3xl font-bold leading-tight text-white sm:text-4xl md:text-[2.75rem] md:leading-tight"
           >
-            About The SRDV Technologies
+            About {BRAND.fullName}
           </h1>
           <p className="mt-4 max-w-2xl text-base text-white/90 sm:text-lg md:text-xl">
             A technology service provider of new world
@@ -48,7 +49,7 @@ export function AboutPageContent() {
             id="adventure-heading"
             className="text-center text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl md:text-[1.85rem]"
           >
-            The SRDV Adventure Starts Now
+            The {BRAND.name} adventure starts now
           </h2>
           <div className="mx-auto mt-4 h-0.5 w-16 rounded-full" style={{ backgroundColor: RED }} aria-hidden />
 
@@ -63,7 +64,7 @@ export function AboutPageContent() {
 
           <div className="mt-12 space-y-5 text-left text-[15px] leading-[1.8] text-zinc-700 sm:text-base">
             <p>
-              SRDV Technologies has grown alongside the travel industry&apos;s shift toward digital-first booking, APIs, and
+              {BRAND.fullName} has grown alongside the travel industry&apos;s shift toward digital-first booking, APIs, and
               personalized retailing. We combine product thinking with strong engineering so our clients can launch faster,
               integrate suppliers cleanly, and operate with confidence.
             </p>

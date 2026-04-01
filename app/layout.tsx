@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { BRAND } from "@/lib/brand";
 import "./globals.css";
 
 const inter = Inter({
@@ -17,8 +18,8 @@ const merriweatherItalic = Merriweather({
 });
 
 export const metadata: Metadata = {
-  title: "SRDV Project",
-  description: "Next.js + Tailwind CSS",
+  title: BRAND.siteTitle,
+  description: `${BRAND.fullName} — demo site (Next.js + Tailwind).`,
 };
 
 export default function RootLayout({

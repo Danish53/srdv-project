@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, Mail, MapPin, Phone } from "lucide-react";
 import { type ReactNode, FormEvent, useState } from "react";
+import { BRAND } from "@/lib/brand";
 
 const RED = "#e31e24";
 
@@ -122,10 +123,10 @@ export function ContactPageContent() {
                 <Mail className="h-5 w-5" strokeWidth={2} aria-hidden />
               </CircleIcon>
               <a
-                href="mailto:info@srdvtechnologies.com"
+                href={`mailto:${BRAND.email}`}
                 className="break-all pt-2 text-base font-medium text-zinc-800 hover:underline"
               >
-                info@srdvtechnologies.com
+                {BRAND.email}
               </a>
             </div>
             <div className="flex items-start gap-4">

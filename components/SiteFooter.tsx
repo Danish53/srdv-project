@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChevronRight, Mail, MapPin, Phone } from "lucide-react";
 import type { CSSProperties, ReactNode } from "react";
+import { BRAND } from "@/lib/brand";
 
 const RED = "#D32F2F";
 const PINK_BAR = "#F9F1F1";
@@ -58,10 +59,16 @@ function RedUnderline() {
 
 const year = new Date().getFullYear();
 
+const quickLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About Us" },
+  { href: "/contact", label: "Contact Us" },
+  { href: "/faq", label: "FAQ" },
+] as const;
+
 export function SiteFooter() {
   return (
     <footer className="mt-auto w-full">
-      {/* Social strip — diagonal top-left */}
       <div
         className="text-white"
         style={{
@@ -94,7 +101,6 @@ export function SiteFooter() {
         </div>
       </div>
 
-      {/* Main links — dotted bg */}
       <div
         className="border-t border-zinc-100 bg-white py-12 sm:py-14 lg:py-16"
         style={{
@@ -102,118 +108,17 @@ export function SiteFooter() {
           backgroundSize: "14px 14px",
         }}
       >
-        <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-4 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 sm:px-6 lg:grid-cols-4 lg:gap-10 lg:px-10">
-          <div className="space-y-10">
-            <div>
-              <SectionTitle>Travel Portal Development</SectionTitle>
-              <RedUnderline />
-              <ul className="mt-5 space-y-3">
-                <li>
-                  <FooterLink href="#">Travel Portal Solution</FooterLink>
+        <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-4 sm:grid-cols-2 sm:gap-10 sm:px-6 lg:px-10">
+          <div>
+            <SectionTitle>Quick links</SectionTitle>
+            <RedUnderline />
+            <ul className="mt-5 space-y-3">
+              {quickLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <FooterLink href={href}>{label}</FooterLink>
                 </li>
-                <li>
-                  <FooterLink href="#">Travel Technology Solution</FooterLink>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm font-semibold" style={{ color: RED }}>
-                    Show more
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <SectionTitle>E-Commerce Development</SectionTitle>
-              <RedUnderline />
-              <ul className="mt-5 space-y-3">
-                <li>
-                  <FooterLink href="#">E-Commerce Website Development</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="#">B2C E-Commerce Website Development</FooterLink>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm font-semibold" style={{ color: RED }}>
-                    Show more
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="space-y-10">
-            <div>
-              <SectionTitle>Other Services</SectionTitle>
-              <RedUnderline />
-              <ul className="mt-5 space-y-3">
-                <li>
-                  <FooterLink href="#">Job Portal Development</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="#">Educational Portal Development</FooterLink>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm font-semibold" style={{ color: RED }}>
-                    Show more
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <SectionTitle>Mobile Application</SectionTitle>
-              <RedUnderline />
-              <ul className="mt-5 space-y-3">
-                <li>
-                  <FooterLink href="#">Android App Development</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="#">Ios App Development</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="#">Window App Development</FooterLink>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="space-y-10">
-            <div>
-              <SectionTitle>Technologies</SectionTitle>
-              <RedUnderline />
-              <ul className="mt-5 space-y-3">
-                <li>
-                  <FooterLink href="#">PHP</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="#">ANDROID</FooterLink>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm font-semibold" style={{ color: RED }}>
-                    Show more
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <SectionTitle>Others</SectionTitle>
-              <RedUnderline />
-              <ul className="mt-5 space-y-3">
-                <li>
-                  <FooterLink href="#">Blog</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="/faq">FAQ</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="#">Our Clients</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="#">Check My IP</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="#">Terms &amp; Conditions</FooterLink>
-                </li>
-              </ul>
-            </div>
+              ))}
+            </ul>
           </div>
 
           <div>
@@ -237,8 +142,8 @@ export function SiteFooter() {
                   </li>
                   <li className="flex gap-2">
                     <Mail className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900" aria-hidden />
-                    <a href="mailto:info@srdvtechnologies.com" className="break-all hover:underline">
-                      info@srdvtechnologies.com
+                    <a href={`mailto:${BRAND.email}`} className="break-all hover:underline">
+                      {BRAND.email}
                     </a>
                   </li>
                 </ul>
@@ -260,8 +165,8 @@ export function SiteFooter() {
                   </li>
                   <li className="flex gap-2">
                     <Mail className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900" aria-hidden />
-                    <a href="mailto:agra@srdvtechnologies.com" className="break-all hover:underline">
-                      agra@srdvtechnologies.com
+                    <a href={`mailto:${BRAND.emailSecondary}`} className="break-all hover:underline">
+                      {BRAND.emailSecondary}
                     </a>
                   </li>
                 </ul>
@@ -271,19 +176,11 @@ export function SiteFooter() {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className="border-t border-zinc-200/80 py-4" style={{ backgroundColor: PINK_BAR }}>
         <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-4 text-sm sm:flex-row sm:px-6 lg:px-10">
           <nav className="flex flex-wrap items-center justify-center gap-x-1 gap-y-1 text-zinc-700 sm:justify-start">
-            {(
-              [
-                { label: "Home", href: "/" },
-                { label: "About Us", href: "/about" },
-                { label: "Contact Us", href: "/contact" },
-                { label: "Sitemap", href: "#" },
-              ] as const
-            ).map(({ label, href }, i) => (
-              <span key={label} className="inline-flex items-center">
+            {quickLinks.map(({ label, href }, i) => (
+              <span key={href} className="inline-flex items-center">
                 {i > 0 && (
                   <span className="mx-2 text-[8px] leading-none text-blue-600 sm:text-[9px]" aria-hidden>
                     ●
@@ -296,7 +193,7 @@ export function SiteFooter() {
             ))}
           </nav>
           <p className="text-center text-xs text-zinc-600 sm:text-right sm:text-sm">
-            © Copyright 2013 - {year} SRDV Limited
+            © Copyright 2013 - {year} {BRAND.legalLine}
           </p>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BRAND } from "@/lib/brand";
 import {
   Backpack,
   Bed,
@@ -92,11 +93,11 @@ export function AboutSplitSection() {
             <div className="w-full max-w-xl lg:max-w-[30rem] xl:max-w-[34rem]">
               <h2 className="text-3xl font-bold leading-snug tracking-tight text-white sm:text-4xl lg:text-[2.1rem] xl:text-[2.35rem]">
                 <span className="inline-block w-fit border-b-[3px] border-white pb-1">About</span>
-                <span className="ml-2 inline sm:ml-2.5">SRDV Technologies</span>
+                <span className="ml-2 inline sm:ml-2.5">{BRAND.fullName}</span>
               </h2>
               <div className="mt-7 space-y-5 text-base leading-relaxed text-white/95 sm:text-[17px]">
                 <p>
-                  Started in 2013, SRDV Technologies Private Limited is a part of the SRDV group. The Company is
+                  Started in 2013, {BRAND.legalLine} is a demo brand for this showcase site. The company is
                   based in the bustling metropolis of Delhi (India).
                 </p>
                 <p>

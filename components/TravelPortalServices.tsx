@@ -20,7 +20,7 @@ const SERVICES: { title: string; description: string; icon: LucideIcon }[] = [
   {
     title: "B2C White Label System",
     description:
-      "SRDV technologies pvt. ltd. is BEST WHITE LABEL SYSTEM providing company-branded travel portals with full control and scalability for your business growth.",
+      "NEXA Digital provides a strong white-label foundation: company-branded travel portals with full control and scalability for your business growth.",
     icon: Globe,
   },
   {

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { FaqPageContent } from "@/components/faq/FaqPageContent";
+import { BRAND } from "@/lib/brand";
 
 export const metadata: Metadata = {
-  title: "FAQ | SRDV Project",
-  description: "Frequently asked questions about SRDV Technologies — topics, search, and answers.",
+  title: `FAQ | ${BRAND.siteTitle}`,
+  description: `Frequently asked questions about ${BRAND.fullName} — search and answers.`,
 };
 
 export default function FaqPage() {

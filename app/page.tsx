@@ -16,9 +16,6 @@ export default function Home() {
       <EcommercePortalSection />
       <OtherServicesSection />
       <WhyChooseContactSection />
-      <div className="mx-auto w-full max-w-[1400px] flex-1 px-4 py-12 lg:px-10">
-        <p className="text-sm text-neutral-500">Neeche ka page content yahan</p>
-      </div>
     </main>
   );
 }

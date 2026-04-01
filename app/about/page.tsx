@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { AboutPageContent } from "@/components/about/AboutPageContent";
+import { BRAND } from "@/lib/brand";
 
 export const metadata: Metadata = {
-  title: "About Us | SRDV Project",
-  description:
-    "Learn about SRDV Technologies — travel technology, white-label solutions, mobile apps, and the team behind our delivery.",
+  title: `About Us | ${BRAND.siteTitle}`,
+  description: `Learn about ${BRAND.fullName} — travel technology, white-label solutions, mobile apps, and delivery.`,
 };
 
 export default function AboutPage() {
