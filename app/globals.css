@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* About split: diagonal red panel (lg+); WebKit needs explicit prefix */
+@media (min-width: 1024px) {
+  .about-split-red {
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
