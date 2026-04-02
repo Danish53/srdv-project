@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, Mail, MapPin, Phone } from "lucide-react";
 import { type ReactNode, FormEvent, useState } from "react";
+import { ContactSuccessBanner } from "@/components/contact/ContactSuccessBanner";
 import { BRAND } from "@/lib/brand";
-
-const RED = "#e31e24";
+import { THEME } from "@/lib/theme";
 
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1534536281715-e28d68489d4d?w=1920&q=80&auto=format&fit=crop";
@@ -15,7 +15,7 @@ function CircleIcon({ children }: { children: ReactNode }) {
   return (
     <span
       className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-white shadow-sm"
-      style={{ backgroundColor: RED }}
+      style={{ backgroundColor: THEME.primary }}
     >
       {children}
     </span>
@@ -60,7 +60,7 @@ export function ContactPageContent() {
       }
 
       setSubmitState("success");
-      setFeedback("Thank you — your message has been sent. We will get back to you soon.");
+      setFeedback("");
       setName("");
       setPhone("");
       setEmail("");
@@ -96,7 +96,7 @@ export function ContactPageContent() {
         <div className="relative z-10 flex min-h-[240px] flex-col items-center justify-center px-4 py-14 text-center sm:min-h-[280px] md:min-h-[320px] md:py-16">
           <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">Contact Us</h1>
           <nav className="mt-4 flex flex-wrap items-center justify-center gap-2 text-sm sm:text-base" aria-label="Breadcrumb">
-            <Link href="/" className="font-medium transition hover:underline" style={{ color: RED }}>
+            <Link href="/" className="font-medium transition hover:underline" style={{ color: THEME.primary }}>
               Home
             </Link>
             <ChevronRight className="h-4 w-4 shrink-0 text-white" strokeWidth={2.5} aria-hidden />
@@ -143,19 +143,31 @@ export function ContactPageContent() {
               </CircleIcon>
               <div className="space-y-6 pt-0.5">
                 <div>
-                  <p className="text-sm font-bold uppercase tracking-wide" style={{ color: RED }}>
-                    Corporate Office (DELHI NCR, INDIA)
+                  <p className="text-sm font-bold uppercase tracking-wide" style={{ color: THEME.primary }}>
+                  United Kingdom
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-                    G-192, Sector 63 Noida, Delhi-NCR, 201307, India
+                  Palmoak House, 19 South Road Southall, Middlesex UB1 1SU United Kingdom
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm font-bold uppercase tracking-wide" style={{ color: RED }}>
-                    Agra Office (AGRA, INDIA)
+                  <p className="text-sm font-bold uppercase tracking-wide" style={{ color: THEME.primary }}>
+                  Dublin, Ireland
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-                    Elora Complex, (Hanuman Chauraha) Khandari, Agra - 282005, India
+                  Shamrock House, Dublin Airport, Co. Dublin.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-wide" style={{ color: THEME.primary }}>
+                  New Delhi, India
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-600">
+                    Skyline Travel Pvt Ltd Office No. 204, 2nd Floor
+Rajiv Chowk Business Plaza
+Connaught Place
+New Delhi – 110001
+India
                   </p>
                 </div>
               </div>
@@ -165,19 +177,17 @@ export function ContactPageContent() {
           {/* Form */}
           <div className="rounded-lg border border-zinc-200 bg-zinc-50/30 p-6 shadow-sm sm:p-8">
             <h2 className="text-xl font-bold text-zinc-900 sm:text-2xl">Get in touch</h2>
-            {feedback && (
-              <p
-                role="alert"
-                className={`mt-4 rounded-md border px-4 py-3 text-sm ${
-                  submitState === "success"
-                    ? "border-green-200 bg-green-50 text-green-800"
-                    : "border-red-200 bg-red-50 text-red-800"
-                }`}
-              >
+            {submitState === "success" && (
+              <div className="mt-6">
+                <ContactSuccessBanner />
+              </div>
+            )}
+            {submitState === "error" && feedback && (
+              <p role="alert" className="mt-4 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
                 {feedback}
               </p>
             )}
-            <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
+            <form className={`space-y-5 ${submitState === "success" ? "mt-6" : "mt-8"}`} onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="c-name" className="sr-only">
@@ -256,7 +266,7 @@ export function ContactPageContent() {
                   type="submit"
                   disabled={submitState === "loading"}
                   className="rounded-md px-10 py-3 text-sm font-bold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
-                  style={{ backgroundColor: RED }}
+                  style={{ backgroundColor: THEME.primary }}
                 >
                   {submitState === "loading" ? "Sending…" : "Submit"}
                 </button>
@@ -270,7 +280,7 @@ export function ContactPageContent() {
       <button
         type="button"
         className="fixed bottom-6 right-4 z-[60] rounded-sm px-5 py-2.5 text-sm font-bold text-white shadow-lg transition hover:brightness-110 sm:right-6 md:bottom-8 md:right-8"
-        style={{ backgroundColor: RED }}
+        style={{ backgroundColor: THEME.primary }}
         aria-label="Online chat"
       >
         Online

@@ -3,23 +3,29 @@
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { BRAND } from "@/lib/brand";
+import { THEME } from "@/lib/theme";
 
-const MAROON = "#601a4a";
-const NAV_BLUE = "#21619c";
-const RED = "#cc1d1d";
-const BULLET = "#22d3ee";
-
-const SLIDE_IMAGES = [
-  "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1920&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80&auto=format&fit=crop",
+/** Travel / B2B hero backgrounds only — no AI or generic “tech chip” stock. */
+const HERO_SLIDES = [
+  {
+    src: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&q=80&auto=format&fit=crop",
+    alt: "Airliner in flight above clouds",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80&auto=format&fit=crop",
+    alt: "Earth at night from space, global connectivity",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=80&auto=format&fit=crop",
+    alt: "Resort pool and hotel at dusk",
+  },
 ] as const;
 
 const BULLETS = [
-  "CUSTOM TRAVEL PORTAL",
-  "WHITE LABEL TRAVEL PORTAL",
-  "TRAVEL API INTEGRATION",
-  "TRAVEL MOBILE APPLICATIONS",
+  "WHITE-LABEL B2B & B2C PORTALS",
+  "FLIGHT, HOTEL & GROUND INVENTORY",
+  "API-FIRST INTEGRATIONS & AUTOMATION",
+  "MOBILE APPS FOR AGENTS & TRAVELERS",
 ] as const;
 
 function ChevronNav({ dir }: { dir: "prev" | "next" }) {
@@ -66,16 +72,16 @@ function FlowChevron() {
 }
 
 const services = [
-  { title: "Flight API", subtitle: "Integration", Icon: IconPlane },
-  { title: "Hotel API", subtitle: "Integration", Icon: IconBed },
-  { title: "Bus/Car API", subtitle: "Integration", Icon: IconBus },
+  { title: "Flights", subtitle: "Search, book & manage air content", Icon: IconPlane },
+  { title: "Hotels", subtitle: "Rates, allotments & direct contracts", Icon: IconBed },
+  { title: "Bus & car", subtitle: "Ground transport & transfers", Icon: IconBus },
 ] as const;
 
 const AUTO_MS = 6000;
 
 export function HeroSection() {
   const [index, setIndex] = useState(0);
-  const count = SLIDE_IMAGES.length;
+  const count = HERO_SLIDES.length;
 
   const go = useCallback(
     (delta: number) => {
@@ -92,7 +98,7 @@ export function HeroSection() {
   return (
     <section className="relative w-full bg-slate-950 pb-8 md:pb-14" aria-roledescription="carousel">
       <div className="relative min-h-[min(78vh,620px)] w-full overflow-hidden md:min-h-[min(82vh,680px)]">
-        {SLIDE_IMAGES.map((src, i) => (
+        {HERO_SLIDES.map(({ src, alt }, i) => (
           <div
             key={src}
             className={`absolute inset-0 transition-opacity duration-700 ease-out ${
@@ -102,7 +108,7 @@ export function HeroSection() {
           >
             <Image
               src={src}
-              alt=""
+              alt={alt}
               fill
               className="object-cover object-center"
               sizes="100vw"
@@ -117,15 +123,19 @@ export function HeroSection() {
 
         <div className="relative z-10 flex min-h-[min(78vh,620px)] flex-col items-center justify-center px-4 py-16 text-center md:min-h-[min(82vh,680px)] md:px-8 md:py-20">
           <h1 className="max-w-4xl text-balance text-2xl font-extrabold uppercase leading-tight tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[2.65rem] lg:leading-[1.15]">
-            B2B TRAVEL PORTAL DEVELOPMENT
+            B2B TRAVEL TECHNOLOGY THAT SCALES WITH YOU
           </h1>
           <p className="mt-4 text-sm font-semibold tracking-wide text-white/85 sm:text-base">{BRAND.fullName}</p>
+          <p className="mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-white/80 sm:text-base">
+            Portals, APIs, and mobile products for OTAs, TMCs, and distributors—built to launch fast and integrate cleanly
+            with your suppliers.
+          </p>
           <ul className="mt-8 grid max-w-3xl grid-cols-1 gap-x-12 gap-y-3 text-left sm:grid-cols-2 md:mt-10 md:gap-y-3.5">
             {BULLETS.map((text) => (
               <li key={text} className="flex items-start gap-3 text-sm font-semibold uppercase tracking-wide text-white md:text-base">
                 <span
                   className="mt-1.5 h-2 w-2 shrink-0 rounded-full md:mt-2"
-                  style={{ backgroundColor: BULLET }}
+                  style={{ backgroundColor: THEME.secondary }}
                   aria-hidden
                 />
                 {text}
@@ -138,7 +148,8 @@ export function HeroSection() {
           <button
             type="button"
             onClick={() => go(-1)}
-            className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-[#6b1c2e]/85 shadow-md backdrop-blur-sm transition hover:bg-[#6b1c2e] md:h-12 md:w-12"
+            className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/10 shadow-md backdrop-blur-sm transition md:h-12 md:w-12"
+            style={{ backgroundColor: `${THEME.primary}d9` }}
             aria-label="Previous slide"
           >
             <ChevronNav dir="prev" />
@@ -146,7 +157,8 @@ export function HeroSection() {
           <button
             type="button"
             onClick={() => go(1)}
-            className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-[#6b1c2e]/85 shadow-md backdrop-blur-sm transition hover:bg-[#6b1c2e] md:h-12 md:w-12"
+            className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/10 shadow-md backdrop-blur-sm transition md:h-12 md:w-12"
+            style={{ backgroundColor: `${THEME.primary}d9` }}
             aria-label="Next slide"
           >
             <ChevronNav dir="next" />
@@ -154,7 +166,7 @@ export function HeroSection() {
         </div>
 
         <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-2 md:bottom-8" role="tablist" aria-label="Slides">
-          {SLIDE_IMAGES.map((_, i) => (
+          {HERO_SLIDES.map((_, i) => (
             <button
               key={i}
               type="button"
@@ -177,15 +189,17 @@ export function HeroSection() {
                   <div
                     className="shrink-0 rounded-full p-[3px]"
                     style={{
-                      background: `linear-gradient(135deg, ${RED}, ${NAV_BLUE})`,
+                      background: `linear-gradient(135deg, ${THEME.primary}, ${THEME.secondary})`,
                     }}
                   >
                     <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white sm:h-16 sm:w-16">
-                      <Icon className="h-7 w-7 text-[#21619c] sm:h-8 sm:w-8" />
+                      <span className="inline-flex text-current" style={{ color: THEME.primary }}>
+                        <Icon className="h-7 w-7 sm:h-8 sm:w-8" />
+                      </span>
                     </div>
                   </div>
                   <div className="min-w-0 text-left">
-                    <p className="text-base font-bold sm:text-lg" style={{ color: MAROON }}>
+                    <p className="text-base font-bold sm:text-lg" style={{ color: THEME.primary }}>
                       {title}
                     </p>
                     <p className="text-sm text-neutral-500">{subtitle}</p>

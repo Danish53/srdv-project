@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { BRAND } from "@/lib/brand";
+import { THEME } from "@/lib/theme";
 
 function escapeHtml(text: string): string {
   return text
@@ -74,7 +75,7 @@ export async function sendContactFormEmails(payload: ContactPayload): Promise<vo
       <tr><td style="padding:6px 12px 6px 0;font-weight:bold;">Email</td><td><a href="mailto:${safe.email}">${safe.email}</a></td></tr>
     </table>
     <p style="font-family:sans-serif;font-size:14px;margin-top:16px;"><strong>Message</strong></p>
-    <p style="font-family:sans-serif;font-size:14px;line-height:1.5;border-left:3px solid #e31e24;padding-left:12px;">${safe.message}</p>
+    <p style="font-family:sans-serif;font-size:14px;line-height:1.5;border-left:3px solid ${THEME.primary};padding-left:12px;">${safe.message}</p>
   `;
 
   await transporter.sendMail({

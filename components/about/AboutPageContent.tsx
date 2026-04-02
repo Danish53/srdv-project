@@ -3,16 +3,16 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { WhyChooseContactSection } from "@/components/WhyChooseContactSection";
 import { BRAND } from "@/lib/brand";
-
-const RED = "#E31E24";
-const BLUE = "#0054A6";
+import { THEME, THEME_BG } from "@/lib/theme";
 
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&q=80&auto=format&fit=crop";
 
 const TEAM_BULLETS = [
-  "We invest in continuous learning so engineers stay current with travel APIs, cloud patterns, and security best practices.",
-  "Cross-functional pods bring product, design, and delivery together so milestones stay predictable and transparent for clients.",
+  "Delivery leads own scope, risk, and communication—you always know who to call when trade-offs appear.",
+  "Engineers pair with solution architects who have shipped GDS, NDC, hotel aggregators, and payment flows in production.",
+  "Design and QA sit in the same rhythm as development, so UAT is not the first time stakeholders see real behaviour.",
+  "We document decisions and runbooks so your team can operate releases without depending on us forever.",
 ] as const;
 
 export function AboutPageContent() {
@@ -37,7 +37,8 @@ export function AboutPageContent() {
             About {BRAND.fullName}
           </h1>
           <p className="mt-4 max-w-2xl text-base text-white/90 sm:text-lg md:text-xl">
-            A technology service provider of new world
+            B2B travel technology—portals, APIs, and mobile—built for agencies, OTAs, and distributors who outgrow spreadsheets
+            and patchwork tools.
           </p>
         </div>
       </section>
@@ -49,73 +50,75 @@ export function AboutPageContent() {
             id="adventure-heading"
             className="text-center text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl md:text-[1.85rem]"
           >
-            The {BRAND.name} adventure starts now
+            What {BRAND.fullName} stands for
           </h2>
-          <div className="mx-auto mt-4 h-0.5 w-16 rounded-full" style={{ backgroundColor: RED }} aria-hidden />
+          <div className="mx-auto mt-4 h-0.5 w-16 rounded-full" style={{ backgroundColor: THEME.primary }} aria-hidden />
 
           <blockquote className="mt-10 text-center text-base italic leading-relaxed text-zinc-800 sm:text-lg">
-            &ldquo;Technology should simplify travel—not complicate it. We build systems that agencies, OTAs, and enterprises can
-            trust at scale.&rdquo;
+            &ldquo;Distribution should be programmable: clear contracts with suppliers, predictable behaviour in your storefront,
+            and reporting your finance team can reconcile.&rdquo;
           </blockquote>
           <blockquote className="mt-6 text-center text-base italic leading-relaxed text-zinc-800 sm:text-lg">
-            &ldquo;From white-label portals to mobile apps, our focus is reliability, speed to market, and long-term
-            partnership.&rdquo;
+            &ldquo;We are not here to ship a slide deck—we ship releases your agents and customers can actually use, then stay
+            beside you as the market shifts.&rdquo;
           </blockquote>
 
           <div className="mt-12 space-y-5 text-left text-[15px] leading-[1.8] text-zinc-700 sm:text-base">
             <p>
-              {BRAND.fullName} has grown alongside the travel industry&apos;s shift toward digital-first booking, APIs, and
-              personalized retailing. We combine product thinking with strong engineering so our clients can launch faster,
-              integrate suppliers cleanly, and operate with confidence.
+              {BRAND.fullName} helps travel businesses replace brittle workflows with products that fit how you sell: retail,
+              wholesale, corporate, or mixed. We work where booking engines, extranets, CRM, and finance systems meet—so fewer
+              handoffs break between teams.
             </p>
             <p>
-              Our teams work across discovery, UX, backend services, integrations, QA, and DevOps—so you get one accountable
-              partner instead of fragmented vendors. We emphasize documentation, observability, and maintainable codebases that
-              your internal teams can extend over time.
+              Our projects usually start with a focused discovery: who books, who pays, which suppliers matter, and what must
+              go live first. From there we propose a phased plan—each milestone is demonstrable software, not a vague
+              percentage complete.
             </p>
             <p>
-              Whether you are modernizing a legacy stack or starting fresh, we align delivery with your roadmap: phased
-              releases, clear milestones, and pragmatic trade-offs that protect revenue and user experience.
+              Engineering is full-stack by design: APIs, services, integrations, and front-ends are owned together, with
+              automated tests and staging environments that mirror production. That keeps defects out of peak selling windows
+              and makes rollbacks boring instead of dramatic.
             </p>
           </div>
 
           <div
             className="mt-12 rounded-lg border px-5 py-6 sm:px-8 sm:py-8"
-            style={{ backgroundColor: "rgba(0, 84, 166, 0.06)", borderColor: "rgba(0, 84, 166, 0.15)" }}
+            style={{ backgroundColor: THEME_BG.primarySoft, borderColor: THEME_BG.primaryBorder }}
           >
             <p className="text-center text-sm leading-relaxed text-zinc-800 sm:text-left sm:text-[15px] sm:leading-[1.75]">
-              <span className="font-bold" style={{ color: BLUE }}>
-                white label solution
+              Typical engagements combine{" "}
+              <span className="font-bold" style={{ color: THEME.secondary }}>
+                white-label storefronts
               </span>
               ,{" "}
-              <span className="font-bold text-zinc-900">B2B / B2C portals</span>,{" "}
-              <span className="font-bold" style={{ color: BLUE }}>
-                Mobile Apps
+              <span className="font-bold text-zinc-900">B2B agent and corporate portals</span>,{" "}
+              <span className="font-bold" style={{ color: THEME.secondary }}>
+                iOS &amp; Android apps
               </span>{" "}
-              for iOS &amp; Android,{" "}
-              <span className="font-bold text-zinc-900">payment &amp; supplier integrations</span>,{" "}
-              <span className="font-bold" style={{ color: BLUE }}>
-                Travel CRM
+              for travellers and staff,{" "}
+              <span className="font-bold text-zinc-900">payments, fraud, and supplier connectivity</span>, plus{" "}
+              <span className="font-bold" style={{ color: THEME.secondary }}>
+                CRM and operations tooling
               </span>
-              , operations dashboards, and ongoing support—designed as modules you can adopt step by step.
+              —rolled out in slices so you can fund value before expanding scope.
             </p>
           </div>
 
           {/* Team */}
           <div className="mt-16 sm:mt-20">
             <div className="-mx-4 bg-zinc-200/90 py-3.5 px-4 sm:-mx-6 sm:px-6">
-              <h3 className="text-lg font-bold text-zinc-900 sm:text-xl">About Our Team</h3>
+              <h3 className="text-lg font-bold text-zinc-900 sm:text-xl">How we work together</h3>
             </div>
 
             <div className="mt-8 space-y-5 text-[15px] leading-[1.8] text-zinc-700 sm:text-base">
               <p>
-                Our team blends travel-domain experience with modern software practice. Consultants and architects help shape
-                the right architecture early; developers ship iteratively with reviews, automated checks, and staging
-                environments that mirror production.
+                You will meet people who have implemented fare filing, hotel contracts, payment reconciliation, and mobile
+                releases—not only generic developers reading travel for the first time. That shortens debates and keeps
+                decisions grounded in what will run in production.
               </p>
               <p>
-                We maintain a culture of ownership: each engagement has clear leads for delivery and communication, with
-                regular demos and written updates so stakeholders stay informed without chasing status.
+                We run weekly or bi-weekly checkpoints with a written summary: what shipped, what is blocked, and what we need
+                from your side (content, credentials, policy decisions). No surprise “big bang” UAT at the end of a quarter.
               </p>
             </div>
 
@@ -124,7 +127,7 @@ export function AboutPageContent() {
                 <li key={text} className="flex gap-3">
                   <span
                     className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center"
-                    style={{ backgroundColor: RED }}
+                    style={{ backgroundColor: THEME.primary }}
                     aria-hidden
                   >
                     <ChevronRight className="h-3.5 w-3.5 text-white" strokeWidth={3} />
@@ -135,9 +138,14 @@ export function AboutPageContent() {
             </ul>
 
             <p className="mt-10 text-center text-sm text-zinc-500 sm:text-left">
-              More about our work?{" "}
-              <Link href="/contact" className="font-semibold hover:underline" style={{ color: RED }}>
-                Contact us
+              Ready to walk through your roadmap?{" "}
+              <Link href="/contact" className="font-semibold hover:underline" style={{ color: THEME.primary }}>
+                Start a conversation
+              </Link>
+              {" "}
+              or explore{" "}
+              <Link href="/pricing" className="font-semibold hover:underline" style={{ color: THEME.primary }}>
+                pricing
               </Link>
               .
             </p>

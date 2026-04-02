@@ -4,7 +4,7 @@ import { ChevronRight } from "lucide-react";
 import { useMemo, useState } from "react";
 import { DEFAULT_FAQS, type FaqItem } from "./faq-data";
 
-const BLUE = "#004A8D";
+import { THEME } from "@/lib/theme";
 
 function filterFaqs(items: FaqItem[], query: string): FaqItem[] {
   const q = query.trim().toLowerCase();
@@ -38,7 +38,7 @@ export function FaqAccordionSection({
       <div className={`mx-auto ${innerMaxWidthClass} px-4 sm:px-6 lg:px-8`}>
         <div className="rounded-lg border border-zinc-200 bg-zinc-100/80 px-4 py-5 sm:px-6 sm:py-6">
           <p className="text-sm leading-relaxed text-zinc-700 sm:text-[15px]">
-            You can get quick answer of your question by entering here
+            Type a keyword to filter questions—matching topics in the titles and answers will stay visible.
           </p>
           <label htmlFor="faq-search-inline" className="sr-only">
             Search FAQ
@@ -51,14 +51,16 @@ export function FaqAccordionSection({
               setSearch(e.target.value);
               setOpenId(null);
             }}
-            placeholder="Please enter your query keywords"
+            placeholder="Search e.g. API, launch, legacy, pricing…"
             className="mt-4 w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-800 outline-none placeholder:text-zinc-400 focus:border-zinc-400 focus:ring-1 focus:ring-zinc-300"
           />
         </div>
 
         <div className="mt-8 border border-zinc-200 bg-white">
           {faqs.length === 0 ? (
-            <p className="px-4 py-8 text-center text-sm text-zinc-500">No questions match your search.</p>
+            <p className="px-4 py-8 text-center text-sm text-zinc-500">
+              Nothing matches that search—try another word or reach us via the contact page.
+            </p>
           ) : (
             <ul>
               {faqs.map((item, index) => {
@@ -73,11 +75,11 @@ export function FaqAccordionSection({
                     >
                       <ChevronRight
                         className={`mt-0.5 h-5 w-5 shrink-0 transition-transform ${open ? "rotate-90" : ""}`}
-                        style={{ color: BLUE }}
+                        style={{ color: THEME.primary }}
                         strokeWidth={2.5}
                         aria-hidden
                       />
-                      <span className="text-sm font-medium leading-snug sm:text-[15px]" style={{ color: BLUE }}>
+                      <span className="text-sm font-medium leading-snug sm:text-[15px]" style={{ color: THEME.secondary }}>
                         {item.q}
                       </span>
                     </button>

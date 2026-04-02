@@ -4,7 +4,7 @@ import { BRAND } from "@/lib/brand";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: `Learn about ${BRAND.fullName} — travel technology, white-label solutions, mobile apps, and delivery.`,
+  description: `${BRAND.fullName} — B2B travel technology: how we work, what we build, and how our team delivers portals, APIs, and mobile.`,
 };
 
 export default function AboutPage() {

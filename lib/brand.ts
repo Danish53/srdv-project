@@ -5,8 +5,8 @@ export const BRAND = {
   tagline: "B2B travel platform",
   fullName: "b2bnexa",
   legalLine: "b2bnexa Pvt. Ltd.",
-  email: "hello@b2bnexa.example",
-  emailSecondary: "agra@b2bnexa.example",
+  email: "help@b2bnexa.com",
+  emailSecondary: "help@b2bnexa.com",
   /** Single letter in circular header mark */
   logoLetter: "B",
 } as const;

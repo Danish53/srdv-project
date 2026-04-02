@@ -3,9 +3,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import { BRAND } from "@/lib/brand";
-
-const NAV_BLUE = "#21619c";
-const RED = "#cc1d1d";
+import { THEME } from "@/lib/theme";
+import Image from "next/image";
 
 function IconUsers({ className }: { className?: string }) {
   return (
@@ -62,16 +61,17 @@ function LogoMark() {
   const gradId = `logoGrad-${letter}`;
   return (
     <div
-      className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-[#21619c]/30 bg-white shadow-sm"
+      className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 bg-white shadow-sm"
+      style={{ borderColor: `${THEME.primary}4d` }}
       aria-hidden
     >
       <svg viewBox="0 0 48 48" className="h-9 w-9">
         <defs>
           <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#21619c" />
-            <stop offset="50%" stopColor="#21619c" />
-            <stop offset="50%" stopColor={RED} />
-            <stop offset="100%" stopColor={RED} />
+            <stop offset="0%" stopColor={THEME.primary} />
+            <stop offset="50%" stopColor={THEME.primary} />
+            <stop offset="50%" stopColor={THEME.secondary} />
+            <stop offset="100%" stopColor={THEME.secondary} />
           </linearGradient>
         </defs>
         <text
@@ -109,62 +109,18 @@ export function SiteHeader() {
 
   return (
     <header className="w-full font-sans text-neutral-800 shadow-sm">
-      <div
-        className="hidden text-white md:block"
-        style={{
-          backgroundColor: RED,
-          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 82%)",
-        }}
-      >
-        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-end gap-4 px-4 py-1.5 pl-8 lg:px-10">
-          <nav className="flex flex-wrap items-center justify-end gap-5 text-sm font-medium lg:gap-7">
-            {utilityLinks.map(({ href, label, Icon }) => (
-              <Link
-                key={label}
-                href={href}
-                className="inline-flex items-center gap-1.5 text-white/95 transition hover:text-white"
-              >
-                <Icon className="h-4 w-4 shrink-0 opacity-90" />
-                {label}
-              </Link>
-            ))}
-          </nav>
-          {/* <div className="flex items-center gap-2 border-l border-white/25 pl-5 lg:pl-7">
-            {[
-              { Icon: SocialFacebook, href: "#", label: "Facebook" },
-              { Icon: SocialTwitter, href: "#", label: "Twitter" },
-              { Icon: SocialLinkedIn, href: "#", label: "LinkedIn" },
-              { Icon: SocialInstagram, href: "#", label: "Instagram" },
-            ].map(({ Icon, href, label }) => (
-              <Link
-                key={label}
-                href={href}
-                aria-label={label}
-                className="flex h-6 w-6 items-center justify-center rounded bg-white text-[#333] transition hover:bg-white/90"
-              >
-                <Icon className="h-2.5 w-2.5" />
-              </Link>
-            ))}
-          </div> */}
-        </div>
-        <div className="h-3" aria-hidden />
-      </div>
+      
 
       <div className="border-b border-neutral-200 bg-white">
         <div className="mx-auto flex max-w-[1400px] flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6 lg:px-10 lg:py-3">
-          <Link href="/" className="flex items-center gap-3 sm:gap-4">
-            <LogoMark />
-            <div className="leading-tight">
-              <span className="block text-2xl font-extrabold tracking-tight sm:text-3xl" style={{ color: NAV_BLUE }}>
-                {BRAND.name}
-              </span>
-              <span
-                className="block text-base italic sm:text-lg"
-                style={{ color: RED, fontFamily: "var(--font-brand-serif), Georgia, serif" }}
-              >
-                {BRAND.tagline}
-              </span>
-            </div>
+          <Link href="/" className="flex items-center gap-3 sm:gap-4 w-[180px] h-[60px] overflow-hidden">
+            <Image
+              src="/nexalogobg.png"
+              alt={BRAND.name}
+              className="w-[100%] h-auto object-contain"
+              width={100}
+              height={100}
+            />
           </Link>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
@@ -185,7 +141,7 @@ export function SiteHeader() {
             >
               <span
                 className="flex h-7 w-7 items-center justify-center rounded text-white"
-                style={{ backgroundColor: RED }}
+                style={{ backgroundColor: THEME.secondary }}
               >
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                   <rect width="20" height="16" x="2" y="4" rx="2" />
@@ -198,7 +154,7 @@ export function SiteHeader() {
         </div>
       </div>
 
-      <div className="relative" style={{ backgroundColor: NAV_BLUE }}>
+      <div className="relative" style={{ backgroundColor: THEME.primary }}>
         <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-2 px-4 lg:px-10">
           <button
             type="button"
@@ -238,7 +194,7 @@ export function SiteHeader() {
             <Link
               href="/contact"
               className="hidden shrink-0 rounded-full px-4 py-2.5 text-center text-[10px] font-bold uppercase tracking-wide text-white transition hover:brightness-110 md:inline-block xl:px-5"
-              style={{ backgroundColor: RED }}
+              style={{ backgroundColor: THEME.secondary }}
             >
               Request for callback
             </Link>
@@ -247,7 +203,7 @@ export function SiteHeader() {
           <Link
             href="/contact"
             className="rounded-full px-3 py-2 text-[9px] font-bold uppercase leading-tight text-white md:hidden"
-            style={{ backgroundColor: RED }}
+            style={{ backgroundColor: THEME.secondary }}
           >
             Callback
           </Link>
@@ -273,7 +229,7 @@ export function SiteHeader() {
               <Link
                 href="/contact"
                 className="block rounded-full py-3 text-center text-xs font-bold uppercase text-white"
-                style={{ backgroundColor: RED }}
+                style={{ backgroundColor: THEME.secondary }}
                 onClick={() => setMobileOpen(false)}
               >
                 Request for callback

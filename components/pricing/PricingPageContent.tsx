@@ -4,14 +4,12 @@ import { Check } from "lucide-react";
 import { TechnologyProviderSection } from "@/components/TechnologyProviderSection";
 import { FaqAccordionSection } from "@/components/faq/FaqAccordionSection";
 import { BRAND } from "@/lib/brand";
+import { THEME } from "@/lib/theme";
 
-const RED = "#E31E24";
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&q=80&auto=format&fit=crop";
 
-const NAVY = "#0a051d";
 const CARD_BG = "#f9faff";
-const TITLE_BLUE = "#3d4a8c";
 
 const PAYG_FEATURES = [
   "Start selling instantly",
@@ -32,7 +30,7 @@ function FeatureRow({ text }: { text: string }) {
     <li className="flex gap-3 text-[15px] leading-snug text-zinc-700">
       <span
         className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-white"
-        style={{ backgroundColor: NAVY }}
+        style={{ backgroundColor: THEME.secondary }}
         aria-hidden
       >
         <Check className="h-3 w-3" strokeWidth={3} />
@@ -76,7 +74,7 @@ export function PricingPageContent() {
             <span className="text-white/80" aria-hidden>
               &gt;
             </span>
-            <span className="font-semibold" style={{ color: RED }}>
+            <span className="font-semibold" style={{ color: THEME.secondary }}>
               Pricing
             </span>
             <span className="text-white/80" aria-hidden>
@@ -96,7 +94,8 @@ export function PricingPageContent() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2
             id="pricing-heading"
-            className="text-center font-sans text-3xl font-bold tracking-tight text-[#0a051d] sm:text-4xl md:text-[2.25rem]"
+            className="text-center font-sans text-3xl font-bold tracking-tight sm:text-4xl md:text-[2.25rem]"
+            style={{ color: THEME.primary }}
           >
             Pay <em className="italic">only</em> for what you need.
           </h2>
@@ -107,7 +106,7 @@ export function PricingPageContent() {
               className="flex min-h-0 flex-col rounded-2xl border border-zinc-200/90 p-8 shadow-sm sm:p-10"
               style={{ backgroundColor: CARD_BG }}
             >
-              <h3 className="font-sans text-xl font-semibold sm:text-2xl" style={{ color: TITLE_BLUE }}>
+              <h3 className="font-sans text-xl font-semibold sm:text-2xl" style={{ color: THEME.primary }}>
                 Pay as you go
               </h3>
               <p className="mt-3 text-[15px] leading-relaxed text-zinc-600">
@@ -119,7 +118,7 @@ export function PricingPageContent() {
               <Link
                 href="/contact"
                 className="mt-8 block w-full rounded-lg py-3.5 text-center text-sm font-semibold text-white transition hover:opacity-95"
-                style={{ backgroundColor: NAVY }}
+                style={{ backgroundColor: THEME.primary }}
               >
                 Sign up →
               </Link>
@@ -137,7 +136,7 @@ export function PricingPageContent() {
               className="flex min-h-0 flex-col rounded-2xl border border-zinc-200/90 p-8 shadow-sm sm:p-10"
               style={{ backgroundColor: CARD_BG }}
             >
-              <h3 className="font-sans text-xl font-semibold sm:text-2xl" style={{ color: TITLE_BLUE }}>
+              <h3 className="font-sans text-xl font-semibold sm:text-2xl" style={{ color: THEME.primary }}>
                 Enterprise
               </h3>
               <p className="mt-3 text-[15px] leading-relaxed text-zinc-600">
@@ -149,7 +148,7 @@ export function PricingPageContent() {
               <Link
                 href="/contact"
                 className="mt-8 block w-full rounded-lg py-3.5 text-center text-sm font-semibold text-white transition hover:opacity-95"
-                style={{ backgroundColor: NAVY }}
+                style={{ backgroundColor: THEME.primary }}
               >
                 Contact our Sales team →
               </Link>

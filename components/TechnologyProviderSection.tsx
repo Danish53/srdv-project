@@ -2,8 +2,9 @@
 
 import { ChevronLeft, ChevronRight, Plane } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
-const RED = "#e31e24";
+import { THEME } from "@/lib/theme";
 
 function useCarouselScroll() {
   const ref = useRef<HTMLDivElement>(null);
@@ -47,12 +48,7 @@ function useCarouselScroll() {
 function LogoSabre() {
   return (
     <div className="flex h-16 items-center justify-center px-2 sm:h-20">
-      <span className="text-center text-lg font-semibold tracking-tight text-[#c41230] sm:text-xl">Sabre</span>
-      <span className="ml-1 hidden text-[10px] font-medium leading-tight text-[#c41230] sm:block sm:text-xs">
-        Travel
-        <br />
-        Network
-      </span>
+      <Image src="/sabrelogo.png" alt="Sabre" width={100} height={100} className="w-full h-full object-contain" />
     </div>
   );
 }
@@ -76,10 +72,10 @@ function Duffle() {
   );
 }
 
-function LogoSpiceJet() {
+function Amadeus() {
   return (
-    <div className="flex h-16 w-[140px] items-center justify-center bg-[#d6083b] px-3 shadow-sm sm:h-[72px] sm:w-[160px]">
-      <span className="text-center text-xs font-bold uppercase tracking-wide text-white sm:text-sm">SpiceJet</span>
+    <div className="flex h-16 items-center justify-center px-2 sm:h-20">
+      <Image src="/amadeus.png" alt="Amadeus" width={100} height={100} className="w-full h-full object-contain" />
     </div>
   );
 }
@@ -132,11 +128,11 @@ function LogoTravelport() {
 
 const LOGO_ITEMS = [
   { id: "duffle", node: <Duffle /> },
-  { id: "sita", node: <LogoSita /> },
-  { id: "spicejet", node: <LogoSpiceJet /> },
-  { id: "tbo", node: <LogoTbo /> },
-  { id: "travelfusion", node: <LogoTravelFusion /> },
-  { id: "travelport", node: <LogoTravelport /> },
+  { id: "Sabre", node: <LogoSabre /> },
+  { id: "amadeus", node: <Amadeus /> },
+  // { id: "tbo", node: <LogoTbo /> },
+  // { id: "travelfusion", node: <LogoTravelFusion /> },
+  // { id: "travelport", node: <LogoTravelport /> },
 ] as const;
 
 export function TechnologyProviderSection() {
@@ -152,16 +148,20 @@ export function TechnologyProviderSection() {
               className="text-2xl font-normal tracking-tight text-zinc-800 sm:text-3xl md:text-[1.75rem]"
             >
               <span className="font-normal">Our </span>
-              <span className="font-bold" style={{ color: RED }}>
+              <span className="font-bold" style={{ color: THEME.primary }}>
                 Technology
               </span>
               <span className="font-normal"> Provider</span>
             </h2>
             {/* Thick red under “Our Technology”, thin gray under “Provider” */}
             <div className="mt-3 flex w-full max-w-md items-end sm:max-w-lg">
-              <div className="h-[3px] w-[min(72%,18rem)] shrink-0 rounded-sm sm:w-[min(68%,20rem)]" style={{ backgroundColor: RED }} />
+              <div className="h-[3px] w-[min(72%,18rem)] shrink-0 rounded-sm sm:w-[min(68%,20rem)]" style={{ backgroundColor: THEME.primary }} />
               <div className="mb-[1px] h-px min-w-[5rem] flex-1 bg-zinc-300" />
             </div>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-600 sm:text-[15px]">
+              We integrate with the suppliers and aggregators your commercial team already relies on—so your roadmap is not
+              blocked by opaque handoffs.
+            </p>
           </div>
 
           <div className="flex shrink-0 items-center gap-2 self-start sm:self-auto">
@@ -172,7 +172,7 @@ export function TechnologyProviderSection() {
               className="flex h-10 w-10 items-center justify-center border-2 transition sm:h-11 sm:w-11"
               style={
                 canPrev
-                  ? { borderColor: RED, color: RED }
+                  ? { borderColor: THEME.primary, color: THEME.primary }
                   : { borderColor: "#fecaca", color: "#fca5a5" }
               }
               aria-label="Previous logos"
@@ -186,7 +186,7 @@ export function TechnologyProviderSection() {
               className="flex h-10 w-10 items-center justify-center border-2 transition sm:h-11 sm:w-11"
               style={
                 canNext
-                  ? { borderColor: RED, color: RED }
+                  ? { borderColor: THEME.primary, color: THEME.primary }
                   : { borderColor: "#e5e7eb", color: "#d1d5db" }
               }
               aria-label="Next logos"

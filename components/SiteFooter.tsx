@@ -2,9 +2,9 @@ import Link from "next/link";
 import { ChevronRight, Mail, MapPin, Phone } from "lucide-react";
 import type { CSSProperties, ReactNode } from "react";
 import { BRAND } from "@/lib/brand";
+import { THEME } from "@/lib/theme";
 
-const RED = "#D32F2F";
-const PINK_BAR = "#F9F1F1";
+const FOOTER_BAR_BG = "rgba(46, 166, 213, 0.08)";
 
 function SocialFacebook({ className }: { className?: string }) {
   return (
@@ -41,7 +41,7 @@ function SocialInstagram({ className }: { className?: string }) {
 function FooterLink({ href, children }: { href: string; children: ReactNode }) {
   return (
     <Link href={href} className="group flex items-start gap-2 text-sm text-zinc-700 transition hover:text-zinc-900">
-      <ChevronRight className="mt-0.5 h-4 w-4 shrink-0" style={{ color: RED }} strokeWidth={2.5} aria-hidden />
+      <ChevronRight className="mt-0.5 h-4 w-4 shrink-0" style={{ color: THEME.primary }} strokeWidth={2.5} aria-hidden />
       <span>{children}</span>
     </Link>
   );
@@ -54,7 +54,7 @@ function SectionTitle({ children }: { children: ReactNode }) {
 }
 
 function RedUnderline() {
-  return <div className="mt-2 h-1 w-12 rounded-sm" style={{ backgroundColor: RED }} aria-hidden />;
+  return <div className="mt-2 h-1 w-12 rounded-sm" style={{ backgroundColor: THEME.primary }} aria-hidden />;
 }
 
 const year = new Date().getFullYear();
@@ -63,6 +63,7 @@ const quickLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/pricing", label: "Pricing" },
+  // { href: "/api-integration", label: "API Integration" },
   { href: "/contact", label: "Contact Us" },
   { href: "/faq", label: "FAQ" },
 ] as const;
@@ -73,7 +74,7 @@ export function SiteFooter() {
       {/* <div
         className="text-white"
         style={{
-          backgroundColor: RED,
+          backgroundColor: THEME.primary,
           clipPath: "polygon(0 22%, 100% 0, 100% 100%, 0 100%)",
           WebkitClipPath: "polygon(0 22%, 100% 0, 100% 100%, 0 100%)",
         } as CSSProperties}
@@ -127,13 +128,13 @@ export function SiteFooter() {
             <RedUnderline />
             <div className="mt-6 space-y-8">
               <div>
-                <p className="text-sm font-bold" style={{ color: RED }}>
-                  Delhi NCR, India
+                <p className="text-sm font-bold" style={{ color: THEME.primary }}>
+                  United Kingdom
                 </p>
                 <ul className="mt-3 space-y-2.5 text-sm text-zinc-700">
                   <li className="flex gap-2">
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900" aria-hidden />
-                    <span>123 Tech Park, Sector 62, Noida, Uttar Pradesh 201301</span>
+                    <span>Palmoak House, 19 South Road Southall, Middlesex UB1 1SU United Kingdom</span>
                   </li>
                   {/* <li className="flex gap-2">
                     <Phone className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900" aria-hidden />
@@ -150,13 +151,36 @@ export function SiteFooter() {
                 </ul>
               </div>
               <div>
-                <p className="text-sm font-bold" style={{ color: RED }}>
-                  Agra, India
+                <p className="text-sm font-bold" style={{ color: THEME.primary }}>
+                Dublin
                 </p>
                 <ul className="mt-3 space-y-2.5 text-sm text-zinc-700">
                   <li className="flex gap-2">
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900" aria-hidden />
-                    <span>45 MG Road, Sanjay Place, Agra, Uttar Pradesh 282002</span>
+                    <span>Shamrock House, Dublin Airport, Co. Dublin.</span>
+                  </li>
+                  {/* <li className="flex gap-2">
+                    <Phone className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900" aria-hidden />
+                    <a href="tel:+915622400000" className="hover:underline">
+                      (+91) 562-240-0000
+                    </a>
+                  </li> */}
+                  <li className="flex gap-2">
+                    <Mail className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900" aria-hidden />
+                    <a href={`mailto:${BRAND.emailSecondary}`} className="break-all hover:underline">
+                      {BRAND.emailSecondary}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p className="text-sm font-bold" style={{ color: THEME.primary }}>
+                New Delhi, India
+                </p>
+                <ul className="mt-3 space-y-2.5 text-sm text-zinc-700">
+                  <li className="flex gap-2">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900" aria-hidden />
+                    <span>Skyline Travel Pvt Ltd Office No. 204, 2nd Floor Rajiv Chowk Business Plaza Connaught Place New Delhi – 110001 India</span>
                   </li>
                   {/* <li className="flex gap-2">
                     <Phone className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900" aria-hidden />
@@ -177,13 +201,13 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="border-t border-zinc-200/80 py-4" style={{ backgroundColor: PINK_BAR }}>
+      <div className="border-t border-zinc-200/80 py-4" style={{ backgroundColor: FOOTER_BAR_BG }}>
         <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-4 text-sm sm:flex-row sm:px-6 lg:px-10">
           <nav className="flex flex-wrap items-center justify-center gap-x-1 gap-y-1 text-zinc-700 sm:justify-start">
             {quickLinks.map(({ label, href }, i) => (
               <span key={href} className="inline-flex items-center">
                 {i > 0 && (
-                  <span className="mx-2 text-[8px] leading-none text-blue-600 sm:text-[9px]" aria-hidden>
+                  <span className="mx-2 text-[8px] leading-none sm:text-[9px]" style={{ color: THEME.secondary }} aria-hidden>
                     ●
                   </span>
                 )}

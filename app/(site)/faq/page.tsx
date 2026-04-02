@@ -4,7 +4,7 @@ import { BRAND } from "@/lib/brand";
 
 export const metadata: Metadata = {
   title: "FAQ",
-  description: `Frequently asked questions about ${BRAND.fullName} — search and answers.`,
+  description: `${BRAND.fullName} FAQ — integrations, go-live, legacy systems, support, security, and how to get a tailored answer.`,
 };
 
 export default function FaqPage() {

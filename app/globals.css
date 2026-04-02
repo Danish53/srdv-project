@@ -3,12 +3,19 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* Brand — edit lib/theme.ts to keep JS and CSS in sync */
+  --color-primary: #1e5a8e;
+  --color-secondary: #2ea6d5;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* System stack — no Google Fonts fetch at build time (works offline / restricted networks) */
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif;
+  --font-brand-serif: Georgia, Cambria, "Times New Roman", Times, ui-serif, serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,7 +30,7 @@ body {
   color: var(--foreground);
 }
 
-/* About split: diagonal red panel (lg+); WebKit needs explicit prefix */
+/* About split: diagonal panel (lg+); WebKit needs explicit prefix */
 @media (min-width: 1024px) {
   .about-split-red {
     clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);

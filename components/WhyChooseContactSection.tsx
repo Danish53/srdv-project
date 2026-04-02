@@ -3,33 +3,34 @@
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import { FormEvent, useState } from "react";
-
-const RED = "#e31e24";
+import { ContactSuccessBanner } from "@/components/contact/ContactSuccessBanner";
+import { BRAND } from "@/lib/brand";
+import { THEME } from "@/lib/theme";
 
 const BG_IMAGE =
   "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1920&q=80&auto=format&fit=crop";
 
 const REASONS = [
-  "A Complete Travel Technology Company",
-  "13+ Successful years",
-  "1800+ Successfully Completed Projects",
-  "Professional and Experienced Team",
-  "Good Quality Control with Competitive Price",
-  "Dedicated Support Team",
-  "Timely Delivery",
-  "Global Clients",
-  "Best Support",
-  "Following Ethical Process",
-  "98% Client Satisfaction",
-  "Technically Strong System",
-  "Get Desired Result",
+  "End-to-end travel technology—not generic IT outsourcing",
+  "Product, design, and engineering in one delivery loop",
+  "Integration depth across GDS, aggregators, and direct suppliers",
+  "Phased roadmaps so you can launch and iterate without rework",
+  "QA, staging, and observability baked into how we ship",
+  "Documentation your own teams can extend later",
+  "Commercially aware support after go-live",
+  "Security and compliance discussed early, not as an afterthought",
+  "Transparent milestones and demos—you always see working software",
+  "Competitive commercial models for build and retainers",
+  "Global delivery experience with India-based leadership",
+  "Architecture choices that survive supplier and policy change",
+  "Partnership mindset: we succeed when your bookings grow",
 ] as const;
 
 function ListIcon() {
   return (
     <span
       className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center sm:h-7 sm:w-7"
-      style={{ backgroundColor: RED }}
+      style={{ backgroundColor: THEME.primary }}
       aria-hidden
     >
       <ChevronRight className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" strokeWidth={3} />
@@ -67,7 +68,7 @@ export function WhyChooseContactSection() {
       }
 
       setSubmitState("success");
-      setFeedback("Thank you — your message has been sent.");
+      setFeedback("");
       setName("");
       setPhone("");
       setEmail("");
@@ -101,9 +102,12 @@ export function WhyChooseContactSection() {
             id="why-choose-heading"
             className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl lg:text-[1.85rem]"
           >
-            Why Choose US ?
+            Why teams choose {BRAND.fullName}
           </h2>
-          <div className="mt-3 h-0.5 w-14 rounded-full" style={{ backgroundColor: RED }} aria-hidden />
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-zinc-600 sm:text-[15px]">
+            A short list of what clients cite after we have shipped their first release—and stayed for the next phase.
+          </p>
+          <div className="mt-4 h-0.5 w-14 rounded-full" style={{ backgroundColor: THEME.primary }} aria-hidden />
           <ul className="mt-8 space-y-4 sm:mt-10 sm:space-y-4">
             {REASONS.map((text) => (
               <li key={text} className="flex gap-3 text-left sm:gap-3.5">
@@ -116,23 +120,21 @@ export function WhyChooseContactSection() {
 
         {/* Right — Form card */}
         <div className="w-full rounded-none border border-zinc-100 bg-white p-6 shadow-xl sm:p-8 lg:p-10">
-          <h2 className="text-xl font-bold tracking-tight text-zinc-900 sm:text-2xl">Send Your Query</h2>
-          <div className="mt-3 h-0.5 w-14 rounded-full" style={{ backgroundColor: RED }} aria-hidden />
+          <h2 className="text-xl font-bold tracking-tight text-zinc-900 sm:text-2xl">Tell us what you are building</h2>
+          <div className="mt-3 h-0.5 w-14 rounded-full" style={{ backgroundColor: THEME.primary }} aria-hidden />
 
-          {feedback && (
-            <p
-              role="alert"
-              className={`mt-4 rounded-md border px-4 py-3 text-sm ${
-                submitState === "success"
-                  ? "border-green-200 bg-green-50 text-green-800"
-                  : "border-red-200 bg-red-50 text-red-800"
-              }`}
-            >
+          {submitState === "success" && (
+            <div className="mt-6">
+              <ContactSuccessBanner />
+            </div>
+          )}
+          {submitState === "error" && feedback && (
+            <p role="alert" className="mt-4 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
               {feedback}
             </p>
           )}
 
-          <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
+          <form className={`space-y-5 ${submitState === "success" ? "mt-6" : "mt-8"}`} onSubmit={handleSubmit}>
             <div>
               <label htmlFor="wc-name" className="sr-only">
                 Full name
@@ -209,7 +211,7 @@ export function WhyChooseContactSection() {
                 type="submit"
                 disabled={submitState === "loading"}
                 className="rounded-full px-10 py-3 text-sm font-bold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
-                style={{ backgroundColor: RED }}
+                style={{ backgroundColor: THEME.primary }}
               >
                 {submitState === "loading" ? "Sending…" : "Submit"}
               </button>

@@ -12,9 +12,7 @@ import {
   UtensilsCrossed,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-
-const RED = "#e31e24";
-const DARK = "#171717";
+import { THEME } from "@/lib/theme";
 
 type ServiceItem = {
   title: string;
@@ -24,43 +22,51 @@ type ServiceItem = {
 
 const ITEMS: ServiceItem[] = [
   {
-    title: "Job Portal Development",
-    description: "ATS-ready job boards, employer dashboards, and candidate flows with search, alerts, and analytics.",
+    title: "Recruitment & talent portals",
+    description:
+      "Role search, employer tools, and candidate journeys when your travel business also runs hiring at scale.",
     Icon: Search,
   },
   {
-    title: "Educational Portal Development",
-    description: "LMS hooks, course catalogs, assessments, and secure student–teacher collaboration out of the box.",
+    title: "Learning & certification",
+    description:
+      "Course shells, assessments, and partner training so agents and staff stay current on products and compliance.",
     Icon: GraduationCap,
   },
   {
-    title: "Dynamic Website Development",
-    description: "CMS-driven pages, fast delivery, SEO structure, and component libraries your marketing team can own.",
+    title: "Marketing websites",
+    description:
+      "Fast landing experiences, structured SEO, and CMS workflows your team can update without waiting on engineering.",
     Icon: Monitor,
   },
   {
-    title: "Payment Gateway Integration",
-    description: "PCI-minded checkout, multi-currency, retries, webhooks, and reconciliation-friendly reporting.",
+    title: "Payments & billing",
+    description:
+      "Gateway wiring, retries, multi-currency, and reporting hooks that match how travel revenue is recognised.",
     Icon: CreditCard,
   },
   {
-    title: "Food Ordering Development",
-    description: "Menus, modifiers, kitchen tickets, delivery slots, and rider handoff tuned for high order volume.",
+    title: "Hospitality ordering",
+    description:
+      "Menus, kitchen handoff, and delivery coordination for ancillary products bundled with trips or events.",
     Icon: UtensilsCrossed,
   },
   {
-    title: "Taxi Booking Development",
-    description: "Live dispatch, fare rules, driver apps, and trip tracking with ratings and payout-ready ledgers.",
+    title: "Ground transport booking",
+    description:
+      "Dispatch logic, driver workflows, and trip history when car hire or transfers sit beside air and hotel.",
     Icon: CarFront,
   },
   {
-    title: "Chatting System",
-    description: "Rooms, DMs, presence, moderation, and media with scalable realtime infrastructure.",
+    title: "Messaging & support",
+    description:
+      "In-app chat, routing, and audit trails so operations teams resolve traveller issues without losing context.",
     Icon: MessageSquare,
   },
   {
-    title: "Health & Medical App",
-    description: "Appointments, records access, reminders, and telehealth hooks with privacy-first defaults.",
+    title: "Health & wellness journeys",
+    description:
+      "Scheduling, reminders, and secure flows for medical-tourism style programmes that need extra care in UX.",
     Icon: Stethoscope,
   },
 ];
@@ -104,9 +110,13 @@ export function OtherServicesSection() {
             className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl md:text-[2.15rem]"
           >
             <span className="text-zinc-900">Other </span>
-            <span style={{ color: RED }}>Services</span>
+            <span style={{ color: THEME.secondary }}>Services</span>
           </h2>
-          <div className="mx-auto mt-4 h-0.5 w-16 rounded-full" style={{ backgroundColor: RED }} />
+          <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-zinc-600 sm:text-base">
+            Adjacent products we build when your roadmap needs more than flights and hotels—same delivery standards, shared
+            integrations.
+          </p>
+          <div className="mx-auto mt-4 h-0.5 w-16 rounded-full" style={{ backgroundColor: THEME.primary }} />
         </div>
 
         <div className={gridClassName}>
@@ -117,7 +127,7 @@ export function OtherServicesSection() {
               <article
                 key={item.title}
                 className="relative flex min-h-[220px] flex-col items-center justify-center overflow-hidden px-6 py-12 text-center sm:min-h-[240px] sm:px-8 md:min-h-[260px] md:py-14"
-                style={{ backgroundColor: red ? RED : DARK }}
+                style={{ backgroundColor: red ? THEME.primary : THEME.secondary }}
               >
                 <div
                   className="pointer-events-none absolute inset-0 flex items-center justify-center"
@@ -127,15 +137,12 @@ export function OtherServicesSection() {
                     className="h-36 w-36 sm:h-40 sm:w-40 md:h-44 md:w-44"
                     strokeWidth={1}
                     style={{
-                      color: red ? "rgba(255, 200, 200, 0.35)" : "rgba(255, 255, 255, 0.07)",
+                      color: red ? "rgba(255, 255, 255, 0.2)" : "rgba(255, 255, 255, 0.12)",
                     }}
                   />
                 </div>
                 <div className="relative z-[1] max-w-md">
-                  <h3
-                    className="text-lg font-bold leading-snug sm:text-xl"
-                    style={{ color: red ? "#ffffff" : RED }}
-                  >
+                  <h3 className="text-lg font-bold leading-snug text-white sm:text-xl">
                     {item.title}
                   </h3>
                   <p
