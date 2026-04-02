@@ -30,7 +30,7 @@ body {
   color: var(--foreground);
 }
 
-/* About split: diagonal panels (lg+); WebKit needs explicit prefix */
+/* About split: diagonal panels (lg+) WebKit needs explicit prefix */
 @media (min-width: 1024px) {
   .about-split-red {
     clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
