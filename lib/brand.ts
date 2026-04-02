@@ -1,10 +1,10 @@
 /** Site / company name — adjust in one place */
 export const BRAND = {
-  siteTitle: "b2bnexa",
-  name: "b2bnexa",
-  tagline: "B2B travel platform",
-  fullName: "b2bnexa",
-  legalLine: "b2bnexa Pvt. Ltd.",
+  siteTitle: "B2bnexa",
+  name: "B2bnexa",
+  tagline: "B2b travel platform",
+  fullName: "B2bnexa",
+  legalLine: "B2bnexa Pvt. Ltd.",
   email: "help@b2bnexa.com",
   emailSecondary: "help@b2bnexa.com",
   /** Single letter in circular header mark */
