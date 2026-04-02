@@ -130,9 +130,9 @@ const LOGO_ITEMS = [
   { id: "duffle", node: <Duffle /> },
   { id: "Sabre", node: <LogoSabre /> },
   { id: "amadeus", node: <Amadeus /> },
-  // { id: "tbo", node: <LogoTbo /> },
-  // { id: "travelfusion", node: <LogoTravelFusion /> },
-  // { id: "travelport", node: <LogoTravelport /> },
+  { id: "tbo", node: <LogoTbo /> },
+  { id: "travelfusion", node: <LogoTravelFusion /> },
+  { id: "travelport", node: <LogoTravelport /> },
 ] as const;
 
 export function TechnologyProviderSection() {

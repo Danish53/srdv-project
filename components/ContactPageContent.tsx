@@ -277,14 +277,14 @@ India
       </div>
 
       {/* Floating chat */}
-      <button
+      {/* <button
         type="button"
         className="fixed bottom-6 right-4 z-[60] rounded-sm px-5 py-2.5 text-sm font-bold text-white shadow-lg transition hover:brightness-110 sm:right-6 md:bottom-8 md:right-8"
         style={{ backgroundColor: THEME.primary }}
         aria-label="Online chat"
       >
         Online
-      </button>
+      </button> */}
     </>
   );
 }
