@@ -4,10 +4,10 @@ export type FaqItem = { q: string; a: string };
 export const DEFAULT_FAQS: FaqItem[] = [
   {
     q: "Who we are?",
-    a: "NEXA Digital is a demo travel-technology brand focused on portals, APIs, mobile apps, and white-label solutions for agencies, OTAs, and enterprises.",
+    a: "b2bnexa is a B2B travel-technology platform focused on portals, APIs, mobile apps, and white-label solutions for agencies, OTAs, and enterprises.",
   },
   {
-    q: "Why NEXA?",
+    q: "Why b2bnexa?",
     a: "We combine domain experience with disciplined delivery: clear milestones, strong QA, integration expertise with major suppliers, and long-term support so your platform stays reliable as you scale.",
   },
   {

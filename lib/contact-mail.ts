@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { BRAND } from "@/lib/brand";
 
 function escapeHtml(text: string): string {
   return text
@@ -55,7 +56,7 @@ export async function sendContactFormEmails(payload: ContactPayload): Promise<vo
   };
 
   const textBody = [
-    `New message from the website contact form`,
+    `New message from ${BRAND.siteTitle} (contact form)`,
     ``,
     `Name: ${name}`,
     `Phone: ${phone}`,
@@ -66,7 +67,7 @@ export async function sendContactFormEmails(payload: ContactPayload): Promise<vo
   ].join("\n");
 
   const htmlBody = `
-    <h2 style="font-family:sans-serif;">New contact form submission</h2>
+    <h2 style="font-family:sans-serif;">New contact form submission — ${BRAND.siteTitle}</h2>
     <table style="font-family:sans-serif;font-size:14px;border-collapse:collapse;">
       <tr><td style="padding:6px 12px 6px 0;font-weight:bold;">Name</td><td>${safe.name}</td></tr>
       <tr><td style="padding:6px 12px 6px 0;font-weight:bold;">Phone</td><td>${safe.phone}</td></tr>
@@ -80,7 +81,7 @@ export async function sendContactFormEmails(payload: ContactPayload): Promise<vo
     from,
     to,
     replyTo: email,
-    subject: `Contact: ${name}`.slice(0, 200),
+    subject: `[${BRAND.siteTitle}] Contact: ${name}`.slice(0, 200),
     text: textBody,
     html: htmlBody,
   });
@@ -89,9 +90,9 @@ export async function sendContactFormEmails(payload: ContactPayload): Promise<vo
     await transporter.sendMail({
       from,
       to: email,
-      subject: "We received your message",
-      text: `Hi ${name},\n\nThank you for contacting us. We have received your message and will get back to you soon.\n\n— Team`,
-      html: `<p>Hi ${safe.name},</p><p>Thank you for contacting us. We have received your message and will get back to you soon.</p><p>— Team</p>`,
+      subject: `${BRAND.siteTitle} — We received your message`,
+      text: `Hi ${name},\n\nThank you for contacting us. We have received your message and will get back to you soon.\n\n— ${BRAND.fullName}`,
+      html: `<p>Hi ${safe.name},</p><p>Thank you for contacting us. We have received your message and will get back to you soon.</p><p>— ${BRAND.fullName}</p>`,
     });
   }
 }

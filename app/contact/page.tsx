@@ -3,7 +3,7 @@ import { ContactPageContent } from "@/components/ContactPageContent";
 import { BRAND } from "@/lib/brand";
 
 export const metadata: Metadata = {
-  title: `Contact Us | ${BRAND.siteTitle}`,
+  title: "Contact Us",
   description: `Get in touch with ${BRAND.fullName} — phone, email, offices in Delhi NCR and Agra.`,
 };
 

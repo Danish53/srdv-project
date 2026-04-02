@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import { BRAND } from "@/lib/brand";
 
 const MAROON = "#601a4a";
 const NAV_BLUE = "#21619c";
@@ -116,8 +117,9 @@ export function HeroSection() {
 
         <div className="relative z-10 flex min-h-[min(78vh,620px)] flex-col items-center justify-center px-4 py-16 text-center md:min-h-[min(82vh,680px)] md:px-8 md:py-20">
           <h1 className="max-w-4xl text-balance text-2xl font-extrabold uppercase leading-tight tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[2.65rem] lg:leading-[1.15]">
-            AI ENABLED TRAVEL PORTAL DEVELOPMENT
+            B2B TRAVEL PORTAL DEVELOPMENT
           </h1>
+          <p className="mt-4 text-sm font-semibold tracking-wide text-white/85 sm:text-base">{BRAND.fullName}</p>
           <ul className="mt-8 grid max-w-3xl grid-cols-1 gap-x-12 gap-y-3 text-left sm:grid-cols-2 md:mt-10 md:gap-y-3.5">
             {BULLETS.map((text) => (
               <li key={text} className="flex items-start gap-3 text-sm font-semibold uppercase tracking-wide text-white md:text-base">

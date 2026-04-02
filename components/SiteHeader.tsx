@@ -99,6 +99,7 @@ const utilityLinks = [
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact" },
   { href: "/faq", label: "FAQ" },
 ] as const;
@@ -128,7 +129,7 @@ export function SiteHeader() {
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-2 border-l border-white/25 pl-5 lg:pl-7">
+          {/* <div className="flex items-center gap-2 border-l border-white/25 pl-5 lg:pl-7">
             {[
               { Icon: SocialFacebook, href: "#", label: "Facebook" },
               { Icon: SocialTwitter, href: "#", label: "Twitter" },
@@ -144,7 +145,7 @@ export function SiteHeader() {
                 <Icon className="h-2.5 w-2.5" />
               </Link>
             ))}
-          </div>
+          </div> */}
         </div>
         <div className="h-3" aria-hidden />
       </div>
@@ -167,7 +168,7 @@ export function SiteHeader() {
           </Link>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-            <a
+            {/* <a
               href="tel:+919643737505"
               className="inline-flex items-center gap-2 text-sm text-neutral-700"
             >
@@ -177,7 +178,7 @@ export function SiteHeader() {
                 </svg>
               </span>
               <span className="font-medium">(+91) 96437-37505</span>
-            </a>
+            </a> */}
             <a
               href={`mailto:${BRAND.email}`}
               className="inline-flex items-center gap-2 text-sm text-neutral-700"

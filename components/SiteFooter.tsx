@@ -62,6 +62,7 @@ const year = new Date().getFullYear();
 const quickLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact Us" },
   { href: "/faq", label: "FAQ" },
 ] as const;
@@ -69,7 +70,7 @@ const quickLinks = [
 export function SiteFooter() {
   return (
     <footer className="mt-auto w-full">
-      <div
+      {/* <div
         className="text-white"
         style={{
           backgroundColor: RED,
@@ -99,7 +100,7 @@ export function SiteFooter() {
             ))}
           </nav>
         </div>
-      </div>
+      </div> */}
 
       <div
         className="border-t border-zinc-100 bg-white py-12 sm:py-14 lg:py-16"
@@ -134,12 +135,12 @@ export function SiteFooter() {
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900" aria-hidden />
                     <span>123 Tech Park, Sector 62, Noida, Uttar Pradesh 201301</span>
                   </li>
-                  <li className="flex gap-2">
+                  {/* <li className="flex gap-2">
                     <Phone className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900" aria-hidden />
                     <a href="tel:+919643737505" className="hover:underline">
                       (+91) 96437-37505
                     </a>
-                  </li>
+                  </li> */}
                   <li className="flex gap-2">
                     <Mail className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900" aria-hidden />
                     <a href={`mailto:${BRAND.email}`} className="break-all hover:underline">
@@ -157,12 +158,12 @@ export function SiteFooter() {
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900" aria-hidden />
                     <span>45 MG Road, Sanjay Place, Agra, Uttar Pradesh 282002</span>
                   </li>
-                  <li className="flex gap-2">
+                  {/* <li className="flex gap-2">
                     <Phone className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900" aria-hidden />
                     <a href="tel:+915622400000" className="hover:underline">
                       (+91) 562-240-0000
                     </a>
-                  </li>
+                  </li> */}
                   <li className="flex gap-2">
                     <Mail className="mt-0.5 h-4 w-4 shrink-0 text-zinc-900" aria-hidden />
                     <a href={`mailto:${BRAND.emailSecondary}`} className="break-all hover:underline">

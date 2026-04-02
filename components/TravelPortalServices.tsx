@@ -20,7 +20,7 @@ const SERVICES: { title: string; description: string; icon: LucideIcon }[] = [
   {
     title: "B2C White Label System",
     description:
-      "NEXA Digital provides a strong white-label foundation: company-branded travel portals with full control and scalability for your business growth.",
+      "b2bnexa provides a strong white-label foundation: company-branded travel portals with full control and scalability for your business growth.",
     icon: Globe,
   },
   {

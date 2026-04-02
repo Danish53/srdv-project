@@ -97,7 +97,7 @@ export function EcommercePortalSection() {
       </div>
 
       {/* Main area */}
-      <div className="relative bg-[#fdf6f8] px-4 py-14 sm:px-6 sm:py-16 md:py-20 lg:px-10">
+      {/* <div className="relative bg-[#fdf6f8] px-4 py-14 sm:px-6 sm:py-16 md:py-20 lg:px-10">
         <div
           className="pointer-events-none absolute -bottom-24 -left-24 h-[min(70vw,28rem)] w-[min(70vw,28rem)] rounded-full bg-pink-200/35 blur-3xl"
           aria-hidden
@@ -123,7 +123,6 @@ export function EcommercePortalSection() {
                 />
               </span>
             </h2>
-            {/* Full-width thin grey line under title row */}
             <div className="mx-auto mt-3 h-px max-w-2xl bg-zinc-300" />
           </div>
 
@@ -147,7 +146,7 @@ export function EcommercePortalSection() {
             ))}
           </ul>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

@@ -3,7 +3,7 @@ import { FaqPageContent } from "@/components/faq/FaqPageContent";
 import { BRAND } from "@/lib/brand";
 
 export const metadata: Metadata = {
-  title: `FAQ | ${BRAND.siteTitle}`,
+  title: "FAQ",
   description: `Frequently asked questions about ${BRAND.fullName} — search and answers.`,
 };
 

@@ -103,10 +103,8 @@ export function AboutPageContent() {
 
           {/* Team */}
           <div className="mt-16 sm:mt-20">
-            <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen bg-zinc-200/90 py-3.5">
-              <div className="mx-auto max-w-3xl px-4 sm:px-6">
-                <h3 className="text-lg font-bold text-zinc-900 sm:text-xl">About Our Team</h3>
-              </div>
+            <div className="-mx-4 bg-zinc-200/90 py-3.5 px-4 sm:-mx-6 sm:px-6">
+              <h3 className="text-lg font-bold text-zinc-900 sm:text-xl">About Our Team</h3>
             </div>
 
             <div className="mt-8 space-y-5 text-[15px] leading-[1.8] text-zinc-700 sm:text-base">

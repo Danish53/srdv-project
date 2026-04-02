@@ -110,14 +110,14 @@ export function ContactPageContent() {
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8 lg:py-16 xl:max-w-[1100px]">
           {/* Contact details */}
           <div className="space-y-8 lg:pr-4">
-            <div className="flex items-start gap-4">
+            {/* <div className="flex items-start gap-4">
               <CircleIcon>
                 <Phone className="h-5 w-5" strokeWidth={2} aria-hidden />
               </CircleIcon>
               <a href="tel:+919643737505" className="pt-2 text-base font-medium text-zinc-800 hover:underline">
                 (+91) 96437-37505
               </a>
-            </div>
+            </div> */}
             <div className="flex items-start gap-4">
               <CircleIcon>
                 <Mail className="h-5 w-5" strokeWidth={2} aria-hidden />
@@ -129,14 +129,14 @@ export function ContactPageContent() {
                 {BRAND.email}
               </a>
             </div>
-            <div className="flex items-start gap-4">
+            {/* <div className="flex items-start gap-4">
               <CircleIcon>
                 <WhatsAppGlyph className="h-6 w-6" />
               </CircleIcon>
               <a href="https://wa.me/919643737505" className="pt-2 text-base font-medium text-zinc-800 hover:underline">
                 (+91) 96437-37505
               </a>
-            </div>
+            </div> */}
             <div className="flex items-start gap-4">
               <CircleIcon>
                 <MapPin className="h-5 w-5" strokeWidth={2} aria-hidden />

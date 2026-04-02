@@ -18,8 +18,20 @@ const merriweatherItalic = Merriweather({
 });
 
 export const metadata: Metadata = {
-  title: BRAND.siteTitle,
-  description: `${BRAND.fullName} — demo site (Next.js + Tailwind).`,
+  title: {
+    default: BRAND.siteTitle,
+    template: `%s | ${BRAND.siteTitle}`,
+  },
+  description: `${BRAND.fullName} — B2B travel technology.`,
+  applicationName: BRAND.siteTitle,
+  appleWebApp: {
+    title: BRAND.siteTitle,
+  },
+  openGraph: {
+    siteName: BRAND.siteTitle,
+    title: BRAND.siteTitle,
+    type: "website",
+  },
 };
 
 export default function RootLayout({

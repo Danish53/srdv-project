@@ -3,7 +3,7 @@ import { AboutPageContent } from "@/components/about/AboutPageContent";
 import { BRAND } from "@/lib/brand";
 
 export const metadata: Metadata = {
-  title: `About Us | ${BRAND.siteTitle}`,
+  title: "About Us",
   description: `Learn about ${BRAND.fullName} — travel technology, white-label solutions, mobile apps, and delivery.`,
 };
 

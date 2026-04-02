@@ -44,7 +44,7 @@ function IconPattern() {
 export function AboutSplitSection() {
   return (
     <section className="relative w-full overflow-hidden bg-zinc-900">
-      <div className="relative min-h-[400px] w-full lg:min-h-[620px] xl:min-h-[640px]">
+      <div className="relative min-h-[400px] w-full lg:min-h-[600px] xl:min-h-[600px]">
         {/* Background — full section; height = min-h on lg, min-h + red block on mobile */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -59,7 +59,7 @@ export function AboutSplitSection() {
         </div>
 
         {/* Left — desktop: anchored left; mobile: in flow over image */}
-        <div className="relative z-[2] flex min-h-[400px] flex-col justify-center px-6 py-14 sm:px-10 sm:py-16 lg:absolute lg:inset-y-0 lg:left-0 lg:min-h-0 lg:w-[44%] lg:max-w-[560px] lg:justify-center lg:px-10 lg:py-12 xl:pl-14 xl:pr-8">
+        <div className="relative z-[2] flex min-h-[400px] flex-col justify-center px-6 py-14 sm:px-10 sm:py-16 lg:absolute lg:inset-y-0 lg:left-0 lg:min-h-0 lg:w-[44%] lg:max-w-[560px] lg:justify-center lg:px-16 lg:py-12 xl:pl-14 xl:pr-8">
           <h2 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.1rem] xl:text-[2.35rem]">
             <span className="relative inline-block">
               Flight
@@ -89,8 +89,8 @@ export function AboutSplitSection() {
           style={{ backgroundColor: RED }}
         >
           <IconPattern />
-          <div className="relative z-10 w-full px-6 py-14 sm:px-10 sm:py-16 lg:py-12 lg:pl-14 lg:pr-10 xl:pl-20 xl:pr-14">
-            <div className="w-full max-w-xl lg:max-w-[30rem] xl:max-w-[34rem]">
+          <div className="relative z-10 w-full px-6 py-14 sm:px-10 sm:py-16 lg:py-12 lg:pl-14 lg:pr-10 xl:pl-16 xl:pr-14">
+            <div className="w-full max-w-xl mx-auto lg:max-w-[30rem] xl:max-w-[34rem]">
               <h2 className="text-3xl font-bold leading-snug tracking-tight text-white sm:text-4xl lg:text-[2.1rem] xl:text-[2.35rem]">
                 <span className="inline-block w-fit border-b-[3px] border-white pb-1">About</span>
                 <span className="ml-2 inline sm:ml-2.5">{BRAND.fullName}</span>
