@@ -205,7 +205,7 @@ export function SiteHeader() {
             className="rounded-full px-3 py-2 text-[9px] font-bold uppercase leading-tight text-white transition duration-200 ease-out hover:brightness-110 md:hidden"
             style={{ backgroundColor: THEME.secondary }}
           >
-            Callback
+            Contact Us
           </Link>
         </div>
 
@@ -232,7 +232,7 @@ export function SiteHeader() {
                 style={{ backgroundColor: THEME.secondary }}
                 onClick={() => setMobileOpen(false)}
               >
-                Request for callback
+                Contact Us
               </Link>
             </li>
           </ul>
