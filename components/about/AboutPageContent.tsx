@@ -2,11 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { WhyChooseContactSection } from "@/components/WhyChooseContactSection";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { BRAND } from "@/lib/brand";
+import { MARKETING_HERO, MARKETING_SECTION } from "@/lib/marketing-hero-images";
 import { THEME, THEME_BG } from "@/lib/theme";
 
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&q=80&auto=format&fit=crop";
+const hero = MARKETING_HERO.about;
 
 const TEAM_BULLETS = [
   "Delivery leads own scope, risk, and communication—you always know who to call when trade-offs appear.",
@@ -21,8 +22,8 @@ export function AboutPageContent() {
       {/* Hero */}
       <section className="relative min-h-[260px] w-full sm:min-h-[300px] md:min-h-[340px]" aria-labelledby="about-hero-title">
         <Image
-          src={HERO_IMAGE}
-          alt=""
+          src={hero.src}
+          alt={hero.alt}
           fill
           className="object-cover object-center brightness-[0.45]"
           sizes="100vw"
@@ -44,8 +45,8 @@ export function AboutPageContent() {
       </section>
 
       {/* Story */}
-      <section className="bg-white py-12 sm:py-16 md:py-20" aria-labelledby="adventure-heading">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+      <section className="overflow-x-hidden bg-white py-12 sm:py-16 md:py-20" aria-labelledby="adventure-heading">
+        <RevealOnScroll className="mx-auto max-w-3xl px-4 sm:px-6">
           <h2
             id="adventure-heading"
             className="text-center text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl md:text-[1.85rem]"
@@ -103,9 +104,57 @@ export function AboutPageContent() {
               —rolled out in slices so you can fund value before expanding scope.
             </p>
           </div>
+        </RevealOnScroll>
 
+        {/* Flight imagery + copy — side by side (no full-bleed → no horizontal scroll) */}
+        <RevealOnScroll className="mx-auto mt-14 max-w-6xl px-4 sm:mt-16 sm:px-6 lg:px-8">
+          <div className="grid gap-8 md:grid-cols-2 md:items-center md:gap-10 lg:gap-12">
+            <div className="relative order-2 min-h-[220px] overflow-hidden rounded-xl border border-zinc-200/80 shadow-sm md:order-1 md:min-h-[280px] lg:min-h-[320px]">
+              <Image
+                src={MARKETING_SECTION.aboutAirportTerminal.src}
+                alt={MARKETING_SECTION.aboutAirportTerminal.alt}
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-lg font-bold tracking-tight text-zinc-900 sm:text-xl" style={{ color: THEME.primary }}>
+                Built for busy terminals and busy teams
+              </h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-zinc-600 sm:text-base">
+                The same complexity travellers feel at the airport—connections, timing, and clear information—is what your agents
+                and partners need in software. We design flows that stay calm when schedules, fares, and inventory move.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-8 md:mt-16 md:grid-cols-2 md:items-center md:gap-10 lg:gap-12">
+            <div>
+              <h3 className="text-lg font-bold tracking-tight text-zinc-900 sm:text-xl" style={{ color: THEME.primary }}>
+                Reliability at altitude
+              </h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-zinc-600 sm:text-base">
+                Peak booking windows and campaign launches do not wait for maintenance. We ship with tests, staging parity,
+                and rollback paths so your storefront keeps selling when demand spikes—just like a well-run operation keeps
+                aircraft moving.
+              </p>
+            </div>
+            <div className="relative min-h-[220px] overflow-hidden rounded-xl border border-zinc-200/80 shadow-sm md:min-h-[280px] lg:min-h-[320px]">
+              <Image
+                src={MARKETING_SECTION.aboutFlightDeckSky.src}
+                alt={MARKETING_SECTION.aboutFlightDeckSky.alt}
+                fill
+                className="object-cover object-[center_35%]"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </RevealOnScroll>
+
+        <RevealOnScroll className="mx-auto mt-16 max-w-3xl px-4 sm:mt-20 sm:px-6">
           {/* Team */}
-          <div className="mt-16 sm:mt-20">
+          <div>
             <div className="-mx-4 bg-zinc-200/90 py-3.5 px-4 sm:-mx-6 sm:px-6">
               <h3 className="text-lg font-bold text-zinc-900 sm:text-xl">How we work together</h3>
             </div>
@@ -150,7 +199,7 @@ export function AboutPageContent() {
               .
             </p>
           </div>
-        </div>
+        </RevealOnScroll>
       </section>
 
       <WhyChooseContactSection />

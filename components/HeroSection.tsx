@@ -121,16 +121,16 @@ export function HeroSection() {
           </div>
         ))}
 
-        <div className="relative z-10 flex min-h-[min(78vh,620px)] flex-col items-center justify-center px-4 py-16 text-center md:min-h-[min(82vh,680px)] md:px-8 md:py-20">
-          <h1 className="max-w-4xl text-balance text-2xl font-extrabold uppercase leading-tight tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[2.65rem] lg:leading-[1.15]">
+        <div className="site-hero-stack relative z-10 flex min-h-[min(78vh,620px)] flex-col items-center justify-center px-4 py-16 text-center md:min-h-[min(82vh,680px)] md:px-8 md:py-20">
+          <h1 className="site-hero-line max-w-4xl text-balance text-2xl font-extrabold uppercase leading-tight tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[2.65rem] lg:leading-[1.15]">
             B2B TRAVEL TECHNOLOGY THAT SCALES WITH YOU
           </h1>
-          <p className="mt-4 text-sm font-semibold tracking-wide text-white/85 sm:text-base">{BRAND.fullName}</p>
-          <p className="mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-white/80 sm:text-base">
+          <p className="site-hero-line mt-4 text-sm font-semibold tracking-wide text-white/85 sm:text-base">{BRAND.fullName}</p>
+          <p className="site-hero-line mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-white/80 sm:text-base">
             Portals, APIs, and mobile products for OTAs, TMCs, and distributors—built to launch fast and integrate cleanly
             with your suppliers.
           </p>
-          <ul className="mt-8 grid max-w-3xl grid-cols-1 gap-x-12 gap-y-3 text-left sm:grid-cols-2 md:mt-10 md:gap-y-3.5">
+          <ul className="site-hero-line mt-8 grid max-w-3xl grid-cols-1 gap-x-12 gap-y-3 text-left sm:grid-cols-2 md:mt-10 md:gap-y-3.5">
             {BULLETS.map((text) => (
               <li key={text} className="flex items-start gap-3 text-sm font-semibold uppercase tracking-wide text-white md:text-base">
                 <span
@@ -148,7 +148,7 @@ export function HeroSection() {
           <button
             type="button"
             onClick={() => go(-1)}
-            className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/10 shadow-md backdrop-blur-sm transition md:h-12 md:w-12"
+            className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/10 shadow-md backdrop-blur-sm transition duration-300 ease-out hover:scale-105 active:scale-95 md:h-12 md:w-12"
             style={{ backgroundColor: `${THEME.primary}d9` }}
             aria-label="Previous slide"
           >
@@ -157,7 +157,7 @@ export function HeroSection() {
           <button
             type="button"
             onClick={() => go(1)}
-            className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/10 shadow-md backdrop-blur-sm transition md:h-12 md:w-12"
+            className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/10 shadow-md backdrop-blur-sm transition duration-300 ease-out hover:scale-105 active:scale-95 md:h-12 md:w-12"
             style={{ backgroundColor: `${THEME.primary}d9` }}
             aria-label="Next slide"
           >
@@ -181,7 +181,7 @@ export function HeroSection() {
 
       {/* Overlapping service bar */}
       <div className="relative z-30 mx-auto w-full max-w-[1200px] px-3 sm:px-4 lg:px-6">
-        <div className="-mt-10 rounded-sm bg-white shadow-[0_8px_30px_rgba(0,0,0,0.12)] md:-mt-14 lg:-mt-16">
+        <div className="site-hero-bar -mt-10 rounded-sm bg-white shadow-[0_8px_30px_rgba(0,0,0,0.12)] md:-mt-14 lg:-mt-16">
           <div className="flex flex-col divide-y divide-neutral-100 md:flex-row md:divide-x md:divide-y-0">
             {services.map(({ title, subtitle, Icon }, i) => (
               <div key={title} className="relative flex flex-1 items-stretch">

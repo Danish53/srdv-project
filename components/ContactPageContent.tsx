@@ -5,11 +5,12 @@ import Link from "next/link";
 import { ChevronRight, Mail, MapPin, Phone } from "lucide-react";
 import { type ReactNode, FormEvent, useState } from "react";
 import { ContactSuccessBanner } from "@/components/contact/ContactSuccessBanner";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { BRAND } from "@/lib/brand";
+import { MARKETING_HERO } from "@/lib/marketing-hero-images";
 import { THEME } from "@/lib/theme";
 
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1534536281715-e28d68489d4d?w=1920&q=80&auto=format&fit=crop";
+const hero = MARKETING_HERO.contact;
 
 function CircleIcon({ children }: { children: ReactNode }) {
   return (
@@ -79,8 +80,8 @@ export function ContactPageContent() {
       {/* Hero */}
       <div className="relative min-h-[240px] w-full sm:min-h-[280px] md:min-h-[320px]">
         <Image
-          src={HERO_IMAGE}
-          alt=""
+          src={hero.src}
+          alt={hero.alt}
           fill
           className="object-cover object-center blur-[2px] sm:blur-sm"
           sizes="100vw"
@@ -89,19 +90,22 @@ export function ContactPageContent() {
         <div className="absolute inset-0 bg-zinc-900/70" aria-hidden />
         {/* Decorative communication hints */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.12]" aria-hidden>
-          <span className="absolute left-[8%] top-1/4 text-8xl text-orange-400 sm:text-9xl">📞</span>
+          {/* <span className="absolute left-[8%] top-1/4 text-8xl text-orange-400 sm:text-9xl">📞</span>
           <span className="absolute left-1/2 top-1/3 -translate-x-1/2 text-7xl text-green-400 sm:text-8xl">@</span>
-          <span className="absolute right-[10%] top-1/4 text-8xl text-sky-400 sm:text-9xl">✉</span>
+          <span className="absolute right-[10%] top-1/4 text-8xl text-sky-400 sm:text-9xl">✉</span> */}
         </div>
         <div className="relative z-10 flex min-h-[240px] flex-col items-center justify-center px-4 py-14 text-center sm:min-h-[280px] md:min-h-[320px] md:py-16">
           <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">Contact Us</h1>
-          <nav className="mt-4 flex flex-wrap items-center justify-center gap-2 text-sm sm:text-base" aria-label="Breadcrumb">
+          {/* <nav className="mt-4 flex flex-wrap items-center justify-center gap-2 text-sm sm:text-base" aria-label="Breadcrumb">
             <Link href="/" className="font-medium transition hover:underline" style={{ color: THEME.primary }}>
               Home
             </Link>
             <ChevronRight className="h-4 w-4 shrink-0 text-white" strokeWidth={2.5} aria-hidden />
             <span className="font-medium text-white">Contact Us</span>
-          </nav>
+          </nav> */}
+          <p className="mt-4 max-w-2xl text-base text-white/90 sm:text-lg md:text-xl">
+            Get in touch with us for any questions or inquiries.
+          </p>
         </div>
       </div>
 
@@ -109,7 +113,7 @@ export function ContactPageContent() {
       <div className="bg-white">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8 lg:py-16 xl:max-w-[1100px]">
           {/* Contact details */}
-          <div className="space-y-8 lg:pr-4">
+          <RevealOnScroll className="space-y-8 lg:pr-4">
             {/* <div className="flex items-start gap-4">
               <CircleIcon>
                 <Phone className="h-5 w-5" strokeWidth={2} aria-hidden />
@@ -172,10 +176,10 @@ India
                 </div>
               </div>
             </div>
-          </div>
+          </RevealOnScroll>
 
           {/* Form */}
-          <div className="rounded-lg border border-zinc-200 bg-zinc-50/30 p-6 shadow-sm sm:p-8">
+          <RevealOnScroll className="rounded-lg border border-zinc-200 bg-zinc-50/30 p-6 shadow-sm sm:p-8">
             <h2 className="text-xl font-bold text-zinc-900 sm:text-2xl">Get in touch</h2>
             {submitState === "success" && (
               <div className="mt-6">
@@ -272,7 +276,7 @@ India
                 </button>
               </div>
             </form>
-          </div>
+          </RevealOnScroll>
         </div>
       </div>
 

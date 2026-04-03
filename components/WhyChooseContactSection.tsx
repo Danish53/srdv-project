@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { ContactSuccessBanner } from "@/components/contact/ContactSuccessBanner";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { BRAND } from "@/lib/brand";
 import { THEME } from "@/lib/theme";
 
@@ -97,7 +98,7 @@ export function WhyChooseContactSection() {
 
       <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8 xl:max-w-[1200px]">
         {/* Left — Why Choose Us */}
-        <div className="lg:pr-4">
+        <RevealOnScroll className="lg:pr-4">
           <h2
             id="why-choose-heading"
             className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl lg:text-[1.85rem]"
@@ -116,10 +117,10 @@ export function WhyChooseContactSection() {
               </li>
             ))}
           </ul>
-        </div>
+        </RevealOnScroll>
 
         {/* Right — Form card */}
-        <div className="w-full rounded-none border border-zinc-100 bg-white p-6 shadow-xl sm:p-8 lg:p-10">
+        <RevealOnScroll className="w-full rounded-none border border-zinc-100 bg-white p-6 shadow-xl sm:p-8 lg:p-10">
           <h2 className="text-xl font-bold tracking-tight text-zinc-900 sm:text-2xl">Tell us what you are building</h2>
           <div className="mt-3 h-0.5 w-14 rounded-full" style={{ backgroundColor: THEME.primary }} aria-hidden />
 
@@ -217,7 +218,7 @@ export function WhyChooseContactSection() {
               </button>
             </div>
           </form>
-        </div>
+        </RevealOnScroll>
       </div>
     </section>
   );

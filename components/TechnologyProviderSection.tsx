@@ -206,7 +206,7 @@ export function TechnologyProviderSection() {
               key={id}
               className="flex w-[min(78vw,280px)] shrink-0 snap-center items-center justify-center sm:w-[200px] md:w-[220px] lg:w-[200px] xl:w-[180px]"
             >
-              <div className="flex w-full items-center justify-center rounded-lg border border-zinc-100 bg-zinc-50/50 px-3 py-4 shadow-sm transition hover:border-zinc-200 hover:bg-white">
+              <div className="flex w-full items-center justify-center rounded-lg border border-zinc-100 bg-zinc-50/50 px-3 py-4 shadow-sm transition duration-300 ease-out hover:-translate-y-0.5 hover:border-zinc-200 hover:bg-white hover:shadow-md">
                 {node}
               </div>
             </div>

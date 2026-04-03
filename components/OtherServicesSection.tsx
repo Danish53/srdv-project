@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { THEME } from "@/lib/theme";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
 type ServiceItem = {
   title: string;
@@ -104,7 +105,7 @@ export function OtherServicesSection() {
   return (
     <section className="w-full bg-white py-14 sm:py-16 md:py-20" aria-labelledby="other-services-heading">
       <div className="mx-auto max-w-[1400px] px-0 sm:px-4 lg:px-6">
-        <div className="px-4 pb-10 text-center sm:px-6 md:pb-12">
+        <RevealOnScroll className="px-4 pb-10 text-center sm:px-6 md:pb-12">
           <h2
             id="other-services-heading"
             className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl md:text-[2.15rem]"
@@ -117,8 +118,9 @@ export function OtherServicesSection() {
             integrations.
           </p>
           <div className="mx-auto mt-4 h-0.5 w-16 rounded-full" style={{ backgroundColor: THEME.primary }} />
-        </div>
+        </RevealOnScroll>
 
+        <RevealOnScroll rootMargin="0px 0px -5% 0px">
         <div className={gridClassName}>
           {ITEMS.map((item, index) => {
             const red = isRedCell(index, cols);
@@ -156,6 +158,7 @@ export function OtherServicesSection() {
             );
           })}
         </div>
+        </RevealOnScroll>
       </div>
     </section>
   );

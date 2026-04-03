@@ -30,6 +30,56 @@ body {
   color: var(--foreground);
 }
 
+/* Subtle, professional motion — disabled when user prefers reduced motion */
+@keyframes site-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .site-hero-stack > .site-hero-line {
+    opacity: 0;
+    animation: site-rise 0.62s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .site-hero-stack > .site-hero-line:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .site-hero-stack > .site-hero-line:nth-child(2) {
+    animation-delay: 0.11s;
+  }
+  .site-hero-stack > .site-hero-line:nth-child(3) {
+    animation-delay: 0.17s;
+  }
+  .site-hero-stack > .site-hero-line:nth-child(4) {
+    animation-delay: 0.23s;
+  }
+
+  .site-hero-bar {
+    opacity: 0;
+    animation: site-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.28s forwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-hero-stack > .site-hero-line,
+  .site-hero-bar {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
 /* About split: diagonal panels (lg+) WebKit needs explicit prefix */
 @media (min-width: 1024px) {
   .about-split-red {

@@ -4,6 +4,7 @@ import { BarChart3, ShoppingCart, Truck, Users } from "lucide-react";
 import type { ComponentType } from "react";
 import { BRAND } from "@/lib/brand";
 import { THEME } from "@/lib/theme";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
 function IconAndroid({ className }: { className?: string }) {
   return (
@@ -78,7 +79,7 @@ export function EcommercePortalSection() {
   return (
     <section className="relative overflow-hidden" aria-labelledby="ecommerce-portal-heading">
       <div className="w-full px-4 py-5 sm:px-6 lg:px-10" style={{ backgroundColor: THEME.primary }}>
-        <div className="mx-auto flex max-w-[1280px] flex-col items-stretch gap-4 md:flex-row md:items-center md:justify-between md:gap-8">
+        <RevealOnScroll className="mx-auto flex max-w-[1280px] flex-col items-stretch gap-4 md:flex-row md:items-center md:justify-between md:gap-8">
           <p className="max-w-3xl text-center text-sm leading-relaxed text-white/95 md:text-left md:text-base">
             Grow faster with <em className="text-white/95 not-italic font-semibold">{BRAND.fullName}</em> — travel
             commerce modules you can phase in. Explore what ships with each build and book a walkthrough.
@@ -90,7 +91,7 @@ export function EcommercePortalSection() {
           >
             Book a live demo
           </Link>
-        </div>
+        </RevealOnScroll>
       </div>
 
       {/* <div className="relative bg-[#fdf6f8] px-4 py-14 sm:px-6 sm:py-16 md:py-20 lg:px-10">

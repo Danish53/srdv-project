@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BRAND } from "@/lib/brand";
 import { THEME } from "@/lib/theme";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import {
   Backpack,
   Bed,
@@ -58,6 +59,7 @@ export function AboutSplitSection() {
         </div>
 
         <div className="relative z-[1] flex min-h-[400px] min-w-0 flex-col justify-center px-6 py-14 sm:px-10 sm:py-16 lg:min-h-0 lg:max-w-[560px] lg:justify-center lg:px-16 lg:py-12 xl:pl-14 xl:pr-8">
+          <RevealOnScroll>
           <h2 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.1rem] xl:text-[2.35rem]">
             <span className="relative inline-block">
               Air
@@ -80,6 +82,7 @@ export function AboutSplitSection() {
           >
             Talk to us
           </Link>
+          </RevealOnScroll>
         </div>
 
         <div
@@ -88,7 +91,7 @@ export function AboutSplitSection() {
         >
           <IconPattern />
           <div className="relative z-10 w-full px-6 py-14 sm:px-10 sm:py-16 lg:py-12 lg:pl-14 lg:pr-10 xl:pl-16 xl:pr-14">
-            <div className="mx-auto w-full max-w-xl lg:max-w-[30rem] xl:max-w-[34rem]">
+            <RevealOnScroll className="mx-auto w-full max-w-xl lg:max-w-[30rem] xl:max-w-[34rem]">
               <h2 className="text-3xl font-bold leading-snug tracking-tight text-white sm:text-4xl lg:text-[2.1rem] xl:text-[2.35rem]">
                 <span className="inline-block w-fit border-b-[3px] border-white pb-1">Who we are</span>
                 <span className="ml-2 inline sm:ml-2.5">{BRAND.fullName}</span>
@@ -109,7 +112,7 @@ export function AboutSplitSection() {
               >
                 Our story
               </Link>
-            </div>
+            </RevealOnScroll>
           </div>
         </div>
       </div>

@@ -3,11 +3,12 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 import { TechnologyProviderSection } from "@/components/TechnologyProviderSection";
 import { FaqAccordionSection } from "@/components/faq/FaqAccordionSection";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { BRAND } from "@/lib/brand";
+import { MARKETING_HERO } from "@/lib/marketing-hero-images";
 import { THEME } from "@/lib/theme";
 
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&q=80&auto=format&fit=crop";
+const hero = MARKETING_HERO.pricing;
 
 const CARD_BG = "#f9faff";
 
@@ -49,8 +50,8 @@ export function PricingPageContent() {
         aria-labelledby="pricing-hero-title"
       >
         <Image
-          src={HERO_IMAGE}
-          alt=""
+          src={hero.src}
+          alt={hero.alt}
           fill
           className="object-cover object-center brightness-[0.45]"
           sizes="100vw"
@@ -64,7 +65,10 @@ export function PricingPageContent() {
           >
             Pricing
           </h1>
-          <nav
+          <p className="mt-4 max-w-2xl text-base text-white/90 sm:text-lg md:text-xl">
+            Pay only for what you need. 
+          </p>
+          {/* <nav
             className="mt-4 flex flex-wrap items-center justify-center gap-2 text-sm sm:text-base"
             aria-label="Breadcrumb"
           >
@@ -81,7 +85,7 @@ export function PricingPageContent() {
               &gt;
             </span>
             <span className="font-medium text-white">{BRAND.name}</span>
-          </nav>
+          </nav> */}
         </div>
       </section>
 
@@ -92,15 +96,18 @@ export function PricingPageContent() {
         aria-labelledby="pricing-heading"
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2
-            id="pricing-heading"
-            className="text-center font-sans text-3xl font-bold tracking-tight sm:text-4xl md:text-[2.25rem]"
-            style={{ color: THEME.primary }}
-          >
-            Pay <em className="italic">only</em> for what you need.
-          </h2>
+          <RevealOnScroll>
+            <h2
+              id="pricing-heading"
+              className="text-center font-sans text-3xl font-bold tracking-tight sm:text-4xl md:text-[2.25rem]"
+              style={{ color: THEME.primary }}
+            >
+              Pay <em className="italic">only</em> for what you need.
+            </h2>
+          </RevealOnScroll>
 
-          <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10 lg:items-stretch">
+          <RevealOnScroll className="mt-12" rootMargin="0px 0px -6% 0px">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10 lg:items-stretch">
             {/* Pay as you go */}
             <article
               className="flex min-h-0 flex-col rounded-2xl border border-zinc-200/90 p-8 shadow-sm sm:p-10"
@@ -160,19 +167,22 @@ export function PricingPageContent() {
                 ))}
               </ul>
             </article>
-          </div>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
       {/* FAQ (same accordion as FAQ page) */}
       <section className="border-b border-zinc-200 bg-white" aria-labelledby="pricing-faq-heading">
-        <h2
-          id="pricing-faq-heading"
-          className="pt-12 text-center font-sans text-2xl font-bold tracking-tight text-zinc-900 sm:pt-14 sm:text-3xl"
-        >
-          FAQ
-        </h2>
-        <FaqAccordionSection className="bg-white pb-12 pt-6 sm:pb-14 sm:pt-8 lg:pb-16" />
+        <RevealOnScroll>
+          <h2
+            id="pricing-faq-heading"
+            className="pt-12 text-center font-sans text-2xl font-bold tracking-tight text-zinc-900 sm:pt-14 sm:text-3xl"
+          >
+            FAQ
+          </h2>
+          <FaqAccordionSection className="bg-white pb-12 pt-6 sm:pb-14 sm:pt-8 lg:pb-16" />
+        </RevealOnScroll>
       </section>
 
       <TechnologyProviderSection />

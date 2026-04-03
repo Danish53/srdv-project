@@ -184,7 +184,7 @@ export function SiteHeader() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="block px-2 py-4 text-[11px] font-semibold uppercase tracking-wide text-white transition hover:bg-white/10 lg:px-3 xl:text-xs"
+                    className="block px-2 py-4 text-[11px] font-semibold uppercase tracking-wide text-white transition duration-200 ease-out hover:bg-white/10 lg:px-3 xl:text-xs"
                   >
                     {item.label}
                   </Link>
@@ -193,16 +193,16 @@ export function SiteHeader() {
             </ul>
             <Link
               href="/contact"
-              className="hidden shrink-0 rounded-full px-4 py-2.5 text-center text-[10px] font-bold uppercase tracking-wide text-white transition hover:brightness-110 md:inline-block xl:px-5"
+              className="hidden shrink-0 rounded-full px-4 py-2.5 text-center text-[10px] font-bold uppercase tracking-wide text-white transition duration-200 ease-out hover:brightness-110 md:inline-block xl:px-5"
               style={{ backgroundColor: THEME.secondary }}
             >
-              Request for callback
+              Contact Us
             </Link>
           </nav>
 
           <Link
             href="/contact"
-            className="rounded-full px-3 py-2 text-[9px] font-bold uppercase leading-tight text-white md:hidden"
+            className="rounded-full px-3 py-2 text-[9px] font-bold uppercase leading-tight text-white transition duration-200 ease-out hover:brightness-110 md:hidden"
             style={{ backgroundColor: THEME.secondary }}
           >
             Callback

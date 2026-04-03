@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 import { THEME } from "@/lib/theme";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import {
   Bed,
   Building2,
@@ -120,25 +121,29 @@ export function TravelPortalServices() {
   return (
     <section className="bg-white py-12 md:py-16 lg:py-20" aria-labelledby="travel-portal-services-heading">
       <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2
-            id="travel-portal-services-heading"
-            className="text-2xl font-bold tracking-tight text-balance sm:text-3xl md:text-4xl"
-          >
-            <span className="text-zinc-900">Solutions we </span>
-            <span style={{ color: THEME.secondary }}>deliver</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-zinc-600 sm:text-base">
-            From white-label storefronts to deep API work—pick the modules you need and grow into the rest when you are ready.
-          </p>
-          <div className="mx-auto mt-4 h-0.5 w-24 sm:w-28" style={{ backgroundColor: THEME.primary }} aria-hidden />
-        </div>
+        <RevealOnScroll>
+          <div className="text-center">
+            <h2
+              id="travel-portal-services-heading"
+              className="text-2xl font-bold tracking-tight text-balance sm:text-3xl md:text-4xl"
+            >
+              <span className="text-zinc-900">Solutions we </span>
+              <span style={{ color: THEME.secondary }}>deliver</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-zinc-600 sm:text-base">
+              From white-label storefronts to deep API work—pick the modules you need and grow into the rest when you are ready.
+            </p>
+            <div className="mx-auto mt-4 h-0.5 w-24 sm:w-28" style={{ backgroundColor: THEME.primary }} aria-hidden />
+          </div>
+        </RevealOnScroll>
 
-        <div className="mt-10 grid grid-cols-1 gap-8 sm:gap-9 md:mt-12 md:grid-cols-2 md:gap-x-10 md:gap-y-10 lg:grid-cols-3 lg:gap-x-12">
-          {SERVICES.map((item) => (
-            <ServiceCard key={item.title} {...item} />
-          ))}
-        </div>
+        <RevealOnScroll className="mt-10 md:mt-12" rootMargin="0px 0px -6% 0px">
+          <div className="grid grid-cols-1 gap-8 sm:gap-9 md:grid-cols-2 md:gap-x-10 md:gap-y-10 lg:grid-cols-3 lg:gap-x-12">
+            {SERVICES.map((item) => (
+              <ServiceCard key={item.title} {...item} />
+            ))}
+          </div>
+        </RevealOnScroll>
       </div>
     </section>
   );
